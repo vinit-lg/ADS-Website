@@ -1,0 +1,23 @@
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), 
+    url('/AboutUs/WhoWeAre/ALMOE+DIGITAL+SOLUTIONS.webp') center center/cover no-repeat;
+  color: #fff;
+  height: 650px;
+  padding: 60px 0 40px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.bannerContent h1 {
+  font-size: var(--font-heading-1);
+  font-weight: 700;
+}
+
+.bannerContent h2 {
+  font-size: var(--font-heading-4);
+  font-weight: 400;
+}
+

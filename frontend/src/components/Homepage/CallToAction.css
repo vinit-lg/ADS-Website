@@ -1,0 +1,62 @@
+.contact-cta-section {
+  background: #f4f6f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.contact-cta-heading {
+  font-size: var(--font-heading-2, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #23336a;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+  border-color: #1564c0;
+  outline: none;
+}
+
+.contact-submit-btn {
+  background-color: #1564c0;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-submit-btn:hover {
+  background-color: #0d406c;
+}
+
+.thank-you-message {
+  font-size: 1.3rem;
+  color: #1564c0;
+  font-weight: 600;
+}

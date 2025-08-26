@@ -1,0 +1,101 @@
+:root{
+  --bg1:#f3f4f7;
+  --bg2:#e6ebf1;
+  --title:#0b1533;
+  --navBg:#5a54e0;     /* purple */
+  --navFg:#fff;
+}
+
+/* Background + layout like your screenshot */
+.section{
+  position:relative;
+  padding:40px 0 56px;
+  background:
+    radial-gradient(1200px 420px at 78% -10%, #dfe7f3 0%, rgba(223,231,243,0) 60%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  font-family:"Poppins", sans-serif;
+}
+.inner{ max-width:1240px; margin:0 auto; padding:0 20px; position:relative; }
+.title{
+  font-weight:700; font-size:40px; line-height:1.15; color:var(--title);
+  margin:0 0 24px; text-align:left;
+}
+
+/* Viewport with edge fades */
+.wrap{
+  position:relative;
+  overflow:hidden;
+  border-radius:12px;
+  mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 60px, #000 calc(100% - 60px), transparent 100%);
+}
+
+/* Layers */
+.marquee{ position:relative; }
+
+/* one set just for measuring width (kept off-screen) */
+.measure{
+  position:absolute; left:-9999px; top:-9999px;
+  visibility:hidden; pointer-events:none;
+}
+
+.set, .track{
+  display:flex;
+  align-items:center;
+  gap:120px;               /* spacing between logos – matches your UI */
+  list-style:none;
+  margin:0;
+  padding:22px 0;
+}
+
+.item{
+  flex:0 0 auto;
+  min-width:180px;
+  display:flex; align-items:center; justify-content:center;
+}
+.logo{
+  height:64px; width:auto; display:block; object-fit:contain;
+}
+
+/* moving track (translateX applied by JS) */
+.track{ will-change: transform; transform: translateX(0); }
+
+/* Arrows */
+.nav{
+  position:absolute; top:50%; transform:translateY(-50%);
+  width:56px; height:56px; border-radius:999px; border:0;
+  background:var(--navBg); color:var(--navFg);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; z-index:3;        /* above fades */
+  box-shadow:0 12px 24px rgba(22,22,40,.18);
+}
+.prev{ left:-6px; }
+.next{ right:-6px; }
+
+.arrow{
+  position:relative; width:22px; height:22px;
+}
+.arrow::before{
+  content:""; position:absolute; inset:0;
+  border-right:3px solid var(--navFg);
+  border-bottom:3px solid var(--navFg);
+  transform:rotate(-45deg);
+  left:2px;
+}
+.prev .arrow{ transform:rotate(180deg); }
+
+/* Edge fades */
+.fade{
+  position:absolute; top:0; bottom:0; width:60px;
+  pointer-events:none; z-index:2;
+}
+.left{ left:0;  background:linear-gradient(to right, var(--bg2), rgba(255,255,255,0)); }
+.right{ right:0; background:linear-gradient(to left,  var(--bg2), rgba(255,255,255,0)); }
+
+/* Responsive */
+@media (max-width:768px){
+  .title{ font-size:28px; margin-bottom:18px; }
+  .logo{ height:52px; }
+  .nav{ width:48px; height:48px; }
+  .arrow{ width:18px; height:18px; }
+}

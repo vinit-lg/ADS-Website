@@ -1,0 +1,40 @@
+/* .SustainabilityHighlights{
+    background-color: grey;
+} */
+.section {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.content {
+  flex: 0 0 40%;
+  min-width: 280px;
+}
+
+.heading {
+  font-size: var(--font-heading-1);
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.75rem;
+}
+
+.text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #444444;
+}
+
+.imageWrapper {
+  flex: 0 0 60%;
+  min-width: 320px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+}

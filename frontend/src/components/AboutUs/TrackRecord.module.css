@@ -1,0 +1,46 @@
+.trackRecordSection {
+  padding: 60px 20px;
+   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+url('/AboutUs/WhoWeAre/unsplash-image-v28DfVFI3V0.webp') center center/cover no-repeat;
+    height: 550px;
+  text-align: center;
+  color: #333;
+}
+
+.trackRecordSection h2 {
+  font-size: var(--font-heading-2);
+  margin-bottom: 40px;
+  font-weight: 700;
+  color: #fff;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.statsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
+}
+
+.statCard {
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex: 1 1 200px;
+  max-width: 250px;
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+.statLabel {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #fff;
+}

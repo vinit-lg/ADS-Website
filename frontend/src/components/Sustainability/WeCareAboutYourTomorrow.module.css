@@ -1,0 +1,22 @@
+
+.heading {
+  font-size: var(--font-heading-2);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #000;
+}
+
+.text {
+  font-size: var( --font-body );
+  color: #000;
+  text-align: center;
+}
+
+.wecareContent{
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

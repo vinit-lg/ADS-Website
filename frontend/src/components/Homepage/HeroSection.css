@@ -1,0 +1,77 @@
+@import "../../styles/theme.css";
+
+.hero-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.50);
+}
+
+.hero-title {
+  font-size: var(--font-heading-1);
+  font-weight: 500;
+  margin-bottom: 1rem;
+  width: 90%;
+  text-align: left;
+  overflow: hidden;
+  line-height: 1.1em;
+}
+
+.hero-subtitle {
+  font-size: var( --font-body);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  width: 60%;
+  text-align: left;
+}
+
+
+.hero-content{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-text-content{
+  flex: 60%
+}
+
+.hero-image-content{
+  flex: 40%
+}
+
+.hero-image-content img{
+width: 200px;
+}
+
+.hero-section-button{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}

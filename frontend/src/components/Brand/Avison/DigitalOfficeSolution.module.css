@@ -1,0 +1,52 @@
+.backgroundSection {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px 20px 60px;
+  color: white;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.imageRow {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.imageContainer {
+  flex: 1 1 250px;
+  overflow: hidden;
+  border-radius: 12px;
+
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+  padding-top: 40px;
+}
+

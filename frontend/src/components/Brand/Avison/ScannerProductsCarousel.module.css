@@ -1,0 +1,73 @@
+.ScannerProductCarouselBackground{
+  background: lightgray;
+}
+
+
+.ScannerProductHeading{
+  text-align: center;
+  padding-top: 40px;
+}
+
+.ScannerProductHeading h2{
+  font-size: var(--font-heading-2);
+  font-weight: 500;
+}
+
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+  position: relative;
+}
+
+.productsRow {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+}
+
+.productCard {
+  width: 30%;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.productImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.productName {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #333;
+}
+
+.arrow {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 8px 15px;
+  user-select: none;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.arrow:hover:not(.disabled) {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}

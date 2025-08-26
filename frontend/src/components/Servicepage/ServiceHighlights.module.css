@@ -1,0 +1,61 @@
+.serviceHighlights {
+   background:     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url('/serviceImage/blue+bg.webp') center center/cover no-repeat;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.serviceHighlights__list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.serviceHighlights .serviceHighlights__item {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border-radius: 40px;
+  box-shadow: 0 4px 18px rgba(35, 51, 106, 0.10);
+  padding: 60px;
+  text-align: center;
+  display: flex !important;;
+  gap: 20px;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: left;
+  align-items: center;
+  flex-basis: calc(50% - 16px);
+  box-sizing: border-box;
+}
+
+.highlightImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.textContent{
+  font-weight: 500;
+  font-size: var(--font-heading-5);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .serviceHighlights__list {
+    justify-content: flex-start;
+    padding: 0 20px;
+  }
+  .serviceHighlights__item {
+    flex-basis: 100%; 
+  }
+}

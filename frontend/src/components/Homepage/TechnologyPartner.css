@@ -1,0 +1,41 @@
+.technology-partner-section {
+  position: relative;
+  background: url('/images/ADS+SOLUTIONS-01.webp') center center/cover no-repeat;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+}
+
+.container.content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  text-align: center;
+  padding: 20px;
+  margin: auto;
+}
+
+.tp-heading {
+  font-size: var(--font-heading-2);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.tp-flex-button{
+    padding-top: 50px;
+}
+
+.tp-button{
+    padding: 16px 72px;
+}
+

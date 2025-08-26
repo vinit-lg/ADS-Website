@@ -1,0 +1,328 @@
+:root {
+  --ads-text: #fff;
+  --ads-pill: #f4b23e;
+  --ads-black: #000;
+}
+
+.ads-header,
+.ads-nav,
+.ads-menu,
+.ads-menu-list,
+.ads-menu-item {
+  overflow: visible !important;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.ads-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: transparent;
+}
+
+.ads-nav {
+  width: 100%;
+  max-width: 90%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 8px;
+  justify-content: space-between;
+}
+
+.ads-caret {
+  display: none;
+}
+
+/* Logo */
+.ads-logo {
+  display: inline-flex;
+  align-items: center;
+}
+.ads-logo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+/* Burger (desktop hidden) */
+.ads-burger {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.ads-burger span {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #fff;
+  transition: 0.25s;
+}
+.ads-burger span:nth-child(1) {
+  top: 12px;
+}
+.ads-burger span:nth-child(2) {
+  top: 20px;
+}
+.ads-burger span:nth-child(3) {
+  top: 28px;
+}
+.ads-burger.is-open span:nth-child(1) {
+  top: 20px;
+  transform: rotate(45deg);
+}
+.ads-burger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+.ads-burger.is-open span:nth-child(3) {
+  top: 20px;
+  transform: rotate(-45deg);
+}
+
+/* Menu row */
+.ads-menu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  /* flex: 1 1 auto; */
+}
+.ads-menu-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px !important;
+}
+
+/* Top-level items */
+.ads-menu-item {
+  position: relative;
+}
+
+.ads-link {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: var(--ads-text);
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Yellow pill on hover */
+.ads-menu-item:hover > .ads-link,
+.ads-menu-item.open > .ads-link {
+  background: var(--ads-pill);
+  color: #fff;
+}
+
+/* Dropdown (megamenu) */
+.ads-dropdown {
+  position: absolute;
+  top: calc(100% + -6px);
+  left: 0;
+  min-width: 320px;
+  background: var(--ads-black);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease,
+    visibility 0s linear 0.18s;
+  z-index: 10000;
+}
+
+.ads-menu-item:hover > .ads-dropdown,
+.ads-menu-item.open > .ads-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.ads-dropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+  max-height: 70vh;
+  overflow-y: auto;
+
+  /* smooth scrolling */
+  scrollbar-width: thin;               /* Firefox */
+  scrollbar-color: rgba(255,255,255,.3) transparent;
+}
+
+/* Chrome / Edge / Safari */
+.ads-dropdown ul::-webkit-scrollbar {
+  width: 6px;
+}
+.ads-dropdown ul::-webkit-scrollbar-track {
+  background: transparent;
+}
+.ads-dropdown ul::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,.4);
+  border-radius: 4px;
+}
+.ads-dropdown ul::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,.6);
+}
+  li {
+    margin-bottom: 0px;
+  }
+
+.ads-dropdown li a {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.2;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+.ads-dropdown li a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Right-side actions */
+.ads-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.ads-call {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--ads-pill);
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+.ads-social {
+  display: inline-flex;
+  gap: 10px;
+}
+.ads-social a {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.ads-social svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff;
+  opacity: 0.9;
+}
+
+/* -------- Mobile -------- */
+@media (max-width: 1060px) {
+  .ads-burger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ads-menu {
+    position: fixed;
+    inset: 72px 0 0 0;
+    background: #000;
+    flex-direction: column;
+    padding: 20px;
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease,
+      visibility 0s linear 0.2s;
+  }
+  .ads-menu.show {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .ads-menu-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ads-dropdown {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    display: none;
+  }
+  .ads-dropdown.show {
+    display: block;
+  }
+  .ads-dropdown ul {
+    max-height: none;
+    overflow: auto;
+  }
+  .ads-dropdown li a {
+    padding: 8px 0 8px 20px;
+  }
+}
+
+@media (min-width: 1061px) and (max-width: 1439px) {
+  .ads-menu {
+    gap: 0px;
+  }
+  .ads-nav {
+    gap: 0px;
+    padding: 15px 0px;
+  }
+  .ads-menu-list {
+    gap: 0px;
+  }
+  .ads-link {
+    font-size: 14px;
+  }
+  .ads-social a {
+    border: none;
+    width: 25px;
+    height: 25px;
+    align-items: flex-start;
+  }
+  li {
+    margin-bottom: 0px;
+  }
+}

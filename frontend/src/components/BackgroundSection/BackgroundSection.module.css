@@ -1,0 +1,40 @@
+.backgroundSection {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 650px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  padding: 40px 20px;
+  border-radius: 12px;
+  max-width: 700px;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+.subtitle {
+    font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.content {
+margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+}

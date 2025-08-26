@@ -1,0 +1,58 @@
+.servicesGrid {
+  background-color: #f9fafb;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.4rem;
+  color: #1564c0;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 40px;
+  padding: 28px 24px;
+  height: 250px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+
+}
+
+
+.cardTitle {
+  font-size: 1.4rem;
+  z-index: 2;
+  position: relative;
+  text-align: center;
+  margin: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
