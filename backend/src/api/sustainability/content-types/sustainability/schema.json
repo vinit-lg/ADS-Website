@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "sustainability",
+  "info": {
+    "singularName": "sustainability",
+    "pluralName": "sustainabilities",
+    "displayName": "Sustainability"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "bannerTitle": { "type": "string" },
+    "bannerSubtitle": { "type": "string" },
+    "bannerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "sustainability.we-care-about-your-tomorrow",
+        "sustainability.highlights"
+      ]
+    }
+  }
+}

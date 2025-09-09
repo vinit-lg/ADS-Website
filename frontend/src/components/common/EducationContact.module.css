@@ -1,0 +1,61 @@
+:root {
+  --bg-light: #f3f3f7;    /* light gray background */
+  --text-dark: #111111;
+  --text-muted: #333333;
+  --btn-bg: #05058c;      /* dark blue */
+  --btn-text: #ffffff;
+  --btn-radius: 8px;
+  --max-width: 1100px;
+}
+
+/* Wrapper */
+.contact {
+  background: var(--bg-light);
+  padding: 64px 20px;
+}
+
+/* Inner container */
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Heading */
+.heading {
+  font-size: clamp(26px, 5vw, 38px);
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text-dark);
+}
+
+/* Description */
+.desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 850px;
+  margin-bottom: 28px;
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: var(--btn-radius);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #00007a;
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(0);
+}

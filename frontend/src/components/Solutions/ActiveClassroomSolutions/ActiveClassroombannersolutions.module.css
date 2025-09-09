@@ -1,0 +1,109 @@
+:root {
+  --gold-start: #f6d557;            /* pale gold (left) */
+  --gold-mid:   #f0b844;            /* mid */
+  --gold-end:   #e49a33;            /* right */
+  --white: #ffffff;
+  --title-shadow: 0 1px 2px rgba(0,0,0,0.18);
+  --cta-radius: 10px;
+}
+
+/* ===== Banner base ===== */
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: var(--banner-min-h, 420px);
+  overflow: hidden;
+}
+
+/* Full-bleed classroom image */
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--banner-img, none);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02); /* tiny zoom like the reference */
+  z-index: 0;
+}
+
+/* slight dark tint so white text reads well */
+.tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.22);
+  z-index: 1;
+}
+
+/* Pale-yellow ribbon on the far left (straight edge) */
+.leftRibbon {
+  position: absolute;
+  inset: 0;
+  width: 26%;
+  background: #f9de63;
+  z-index: 2;
+  /* angle the ribbon’s right edge downwards */
+  clip-path: polygon(0 0, 100% 0, 82% 100%, 0% 100%);
+}
+
+/* Right gradient panel with a strong diagonal left edge */
+.rightPanel {
+  position: absolute;
+  inset: 0;
+  left: 38%;                /* where the diagonal begins over the image */
+  background: linear-gradient(90deg, var(--gold-mid) 0%, var(--gold-end) 100%);
+  z-index: 3;
+  /* Create the diagonal cut matching the screenshot */
+  clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(20px, 6vw, 80px);
+}
+
+/* Title */
+.title {
+  color: var(--white);
+  margin: 0 0 22px 0;
+  font-weight: 700;
+  text-shadow: var(--title-shadow);
+  font-size: 42px
+}
+
+/* CTA button */
+.cta {
+  border: none;
+  background: var(--white);
+  color: #d74a0f;                 /* warm orange text like reference */
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px 28px;
+  border-radius: var(--cta-radius);
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.16);
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.cta:hover { transform: translateY(-1px); }
+.cta:active { transform: translateY(0); }
+
+/* ===== Responsive behaviour ===== */
+@media (max-width: 1100px) {
+  .leftRibbon { width: 22%; }
+  .rightPanel { left: 40%; }
+}
+@media (max-width: 840px) {
+  .leftRibbon { width: 18%; }
+  .rightPanel { left: 34%; clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%); }
+  .title { font-size: clamp(26px, 7vw, 48px); }
+}
+@media (max-width: 640px) {
+  /* Stack look: keep the diagonal feel but give more text room */
+  .leftRibbon { width: 0; }
+  .rightPanel {
+    left: 0;
+    clip-path: none;
+    background: linear-gradient(90deg, var(--gold-start) 0%, var(--gold-end) 100%);
+    align-items: center;
+    text-align: center;
+  }
+}

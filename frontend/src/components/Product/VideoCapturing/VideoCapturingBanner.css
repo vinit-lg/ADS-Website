@@ -1,0 +1,93 @@
+:root {
+  --vcb-h: 72vh;                        /* can be overridden via inline style */
+  --vcb-bg: url("/images/video-capturing-hero.jpg");
+  --vcb-overlay: rgba(0, 0, 0, 0.25);   /* subtle darken for readability */
+  --vcb-heading: #ffffff;
+  --vcb-cta-bg: #ffffff;
+  --vcb-cta-text: #0b2bff;              /* rich blue text like screenshot */
+  --vcb-radius: 10px;
+}
+
+/* Wrapper with background image */
+.vcb-banner {
+  position: relative;
+  min-height: var(--vcb-h);
+  width: 100%;
+  background-image: var(--vcb-bg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Optional soft overlay for contrast */
+.vcb-banner.vcb-has-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--vcb-overlay);
+  pointer-events: none;
+}
+
+.vcb-inner {
+  position: relative; /* sit above overlay */
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 80px 20px;  /* top/side spacing to match screenshot */
+}
+
+/* Alignment variants */
+.vcb-left .vcb-inner {
+  text-align: left;
+  padding-left: 70px;  /* pushes content in from the left like the screenshot */
+}
+
+.vcb-center .vcb-inner {
+  text-align: center;
+  padding-left: 20px;
+}
+
+/* HUGE headline */
+.vcb-title {
+  margin: 0 0 24px;
+  color: var(--vcb-heading);
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  font-size: clamp(36px, 7.2vw, 72px);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+}
+
+/* White rounded CTA with blue text */
+.vcb-cta {
+  border: none;
+  background: var(--vcb-cta-bg);
+  color: var(--vcb-cta-text);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px 24px;
+  border-radius: var(--vcb-radius);
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.vcb-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+}
+
+.vcb-cta:active {
+  transform: translateY(0);
+}
+
+/* Responsive tweaks */
+@media (max-width: 860px) {
+  .vcb-left .vcb-inner { padding-left: 28px; }
+}
+
+@media (max-width: 560px) {
+  .vcb-inner { padding: 56px 16px; }
+  .vcb-cta { font-size: 16px; width: 100%; max-width: 420px; }
+}

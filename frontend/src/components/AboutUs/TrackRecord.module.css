@@ -8,7 +8,7 @@ url('/AboutUs/WhoWeAre/unsplash-image-v28DfVFI3V0.webp') center center/cover no-
 }
 
 .trackRecordSection h2 {
-  font-size: var(--font-heading-2);
+  font-size: var(--font-h2);
   margin-bottom: 40px;
   font-weight: 700;
   color: #fff;

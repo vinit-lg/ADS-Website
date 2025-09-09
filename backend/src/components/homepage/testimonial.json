@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_homepage_testimonials",
+  "info": {
+    "displayName": "Testimonial",
+    "description": "Single client testimonial item"
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "quote": {
+      "type": "text"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

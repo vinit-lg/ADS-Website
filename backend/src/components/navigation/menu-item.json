@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_navigation_menu_items",
+  "info": {
+    "displayName": "menu-item",
+    "icon": "menu"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.submenu-item"
+    }
+  }
+}

@@ -1,0 +1,130 @@
+/* ===== CollaborationTouch (video background + wave + CTA) ===== */
+
+.touchWrap {
+  position: relative;
+  isolation: isolate;
+  min-height: 460px;            /* desktop height similar to screenshot */
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #0b1424;          /* fallback behind video */
+}
+
+/* Top wavy edge with purple stroke */
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 140px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Video layer */
+.touchVideoWrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.touchVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* fills while keeping aspect */
+  transform: translateZ(0);     /* avoids blur on some GPUs */
+}
+
+/* soft vignette + a hint of cool tone to match the silky look */
+.touchVignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(100% 140% at 85% 60%, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.55) 58%, rgba(0,0,0,0.80) 85%),
+    radial-gradient(140% 100% at 20% 30%, rgba(154, 184, 226, 0.18), rgba(0,0,0,0) 70%);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+/* Foreground content */
+.touchInner {
+  position: relative;
+  z-index: 4;
+  text-align: center;
+  padding: 96px 16px 120px;
+  color: #eaf1ff;
+}
+
+.touchTitle {
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  margin: 0 0 26px;
+  line-height: 1.1;
+  font-size: clamp(28px, 5vw, 44px);
+}
+
+/* White rounded CTA */
+.touchCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 260px;
+  height: 58px;
+  padding: 0 28px;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1a2b8d;               /* blue/purple text like screenshot */
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+}
+.touchCta:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+}
+
+/* Bottom-right circular play button */
+.touchPlay {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 58px;
+  height: 58px;
+  border-radius: 999px;
+  border: none;
+  background: #d9e3f7;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  z-index: 4;
+  transition: transform .12s ease, filter .12s ease;
+}
+.touchPlay:hover { transform: scale(1.04); }
+
+.playRing {
+  position: absolute;
+  inset: 5px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 3px #2217D8; /* same hue as wave stroke */
+  pointer-events: none;
+}
+
+.playIcon { display: block; }
+
+/* Height/balance for larger screens */
+@media (min-width: 960px) {
+  .touchWrap { min-height: 520px; }
+  .touchInner { padding-top: 120px; }
+}
+
+/* Smaller screens */
+@media (max-width: 520px) {
+  .touchPlay { width: 54px; height: 54px; }
+  .touchCta { min-width: 220px; height: 54px; }
+}

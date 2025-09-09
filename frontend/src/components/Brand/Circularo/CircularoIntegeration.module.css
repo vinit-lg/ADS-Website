@@ -1,0 +1,146 @@
+/* Container & layout */
+.section {
+  width: 100%;
+  background: #ffffff;
+  color: #0b0b0b;
+  padding: 56px 24px;
+  box-sizing: border-box;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+.inner {
+  max-width: 1150px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Top row: two columns */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 420px; /* left flexible, right fixed-ish */
+  gap: 40px;
+  align-items: start;
+}
+
+/* Left column */
+.leftCol {
+  padding-right: 8px;
+}
+.title {
+  font-size: 36px;
+  font-weight: 800;
+  margin: 0 0 18px 0;
+  line-height: 1.05;
+  color: #0b0b0b;
+}
+.lead {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+  margin: 0;
+  max-width: 640px;
+}
+
+/* Right column: image card */
+.rightCol {
+  display: flex;
+  justify-content: flex-end;
+  align-items: start;
+}
+.imageCard {
+  width: 100%;
+  /* mimic the mockup card look with padding and rounded corners */
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(12, 12, 12, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+.sideImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Secure & Trusted section (below) */
+.secureSection {
+  margin-top: 52px;
+  padding-right: 8px;
+}
+.secureTitle {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0 0 12px 0;
+  color: #0b0b0b;
+}
+.securePara {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333333;
+  margin: 0 0 16px 0;
+  max-width: 100%;
+}
+
+/* Contact link line */
+.contactLine {
+  margin-top: 18px;
+}
+.contactLink {
+  font-weight: 700;
+  color: #0b39ff; /* deep blue/purple like screenshot link */
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Responsive rules */
+@media (max-width: 1024px) {
+  .row {
+    grid-template-columns: 1fr 360px;
+    gap: 28px;
+  }
+  .title {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 820px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+  .rightCol {
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .imageCard {
+    width: 90%;
+    padding: 8px;
+  }
+  .title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 32px 16px;
+  }
+  .title {
+    font-size: 24px;
+  }
+  .secureTitle {
+    font-size: 20px;
+  }
+  .lead,
+  .securePara {
+    font-size: 14px;
+  }
+  .imageCard {
+    width: 100%;
+    padding: 6px;
+  }
+}

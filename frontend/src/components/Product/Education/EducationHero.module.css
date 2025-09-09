@@ -1,0 +1,81 @@
+:root {
+  --bg: #0a0a0a;                /* deep black background */
+  --text: #ffffff;              /* main text color */
+  --muted: #c9c9c9;             /* paragraph color */
+  --radius: 22px;               /* image rounding */
+  --container: 1280px;          /* content width */
+}
+
+/* Section */
+.hero {
+  background: var(--bg);
+  color: var(--text);
+  width: 100%;
+}
+
+/* Centered content with two columns */
+.inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 56px 28px 72px;      /* top/right-left/bottom spacing */
+  display: grid;
+  grid-template-columns: 1fr 0.9fr; /* left copy a bit wider like the screenshot */
+  align-items: center;
+  gap: 40px;
+}
+
+/* Left column */
+.copy { padding-left: 12px; }
+
+.title {
+  margin: 0 0 8px 0;
+  font-weight: 500;
+  font-size: 52px;
+  letter-spacing: 0.2px;
+}
+
+.desc {
+  max-width: 660px;
+  font-size: clamp(14px, 1.3vw, 18px);
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* Right column (image) */
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  display: block;
+  /* subtle depth like the screenshot edge glow */
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.08) inset,
+              0 18px 30px rgba(0,0,0,0.5);
+  object-fit: cover;
+  aspect-ratio: 16 / 10; /* matches the shown image proportions */
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .copy { padding-left: 0; }
+  .photo {
+    width: 92%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner { padding: 36px 20px 56px; }
+  .title { font-size: clamp(36px, 10vw, 56px); }
+  .desc { font-size: 15px; }
+  .photo { width: 100%; border-radius: 18px; }
+}

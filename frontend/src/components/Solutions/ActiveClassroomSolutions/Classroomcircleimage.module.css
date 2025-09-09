@@ -1,0 +1,80 @@
+:root {
+  --page-bg: #e9e9ee;                 /* soft grey */
+  --gold-from: #f6d557;
+  --gold-to:   #e6a33a;
+  --ink: #0b0b0f;
+  --border: #ffffff;
+}
+
+/* section scaffold */
+.section {
+  position: relative;
+  background: var(--page-bg);
+  padding: 68px 0;                    /* top/bottom like screenshot */
+  overflow: hidden;
+}
+
+/* golden stripe through the middle */
+.stripe {
+  position: relative;
+  height: var(--stripe-h, 220px);
+  background: linear-gradient(90deg, var(--gold-from) 0%, var(--gold-to) 100%);
+  clip-path: polygon(0 0, 76% 0, 72% 100%, 0% 100%); /* angled right edge */
+}
+
+/* inner content width */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+}
+
+/* headline on the left */
+.title {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: clamp(20px, 2.6vw, 28px);
+  letter-spacing: 0.2px;
+}
+
+/* circular image on right with thick white border */
+.circleWrap {
+  position: absolute;
+  right: clamp(12px, 4vw, 48px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(520px, 38vw);
+  height: min(520px, 38vw);
+  border-radius: 50%;
+  background: var(--border);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+  display: grid;
+  place-items: center;
+  padding: clamp(10px, 1.4vw, 16px);   /* white ring thickness */
+}
+
+.circleImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Responsive: stack & keep overlap feel on small screens */
+@media (max-width: 900px) {
+  .stripe { clip-path: none; }
+  .circleWrap {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    margin: 24px auto 0;
+    width: min(420px, 70vw);
+    height: min(420px, 70vw);
+  }
+  .section { padding: 40px 0 56px; }
+}

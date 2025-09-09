@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_career_think_sections",
+  "info": { "displayName": "Think Section", "icon": "list" },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string"},
+    "description": { "type": "text" },
+    "subText": { "type": "text" },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "reverse": { "type": "boolean", "default": false }
+  }
+}

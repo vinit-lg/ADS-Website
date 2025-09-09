@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contact_messages",
+  "info": {
+    "singularName": "contact-message",
+    "pluralName": "contact-messages",
+    "displayName": "Contact Message"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "firstName": { "type": "string", "required": true },
+    "lastName": { "type": "string", "required": true },
+    "country": { "type": "string" },
+    "phone": { "type": "string", "required": true },
+    "email": { "type": "email", "required": true },
+    "companyName": { "type": "string" },
+    "message": { "type": "text", "required": true }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_brand_installation_items",
+  "info": {
+    "displayName": "Installation Item",
+    "icon": "check",
+    "description": "Single installation checklist item"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

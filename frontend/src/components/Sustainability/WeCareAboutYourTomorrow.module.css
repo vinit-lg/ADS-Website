@@ -1,15 +1,17 @@
 
 .heading {
-  font-size: var(--font-heading-2);
+  font-size: var(--font-h2);
   margin-bottom: 1rem;
   font-weight: 700;
   color: #000;
 }
 
 .text {
-  font-size: var( --font-body );
+  font-size: var( --font-body);
   color: #000;
   text-align: center;
+  padding-top: 10px;
+  font-weight: 300;
 }
 
 .wecareContent{

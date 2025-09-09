@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_sus_highlights",
+  "info": {
+    "displayName": "Sustainability Highlights",
+    "icon": "star"
+  },
+  "category": "sustainability",
+  "attributes": {
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sustainability.highlight-item"
+    }
+  }
+}

@@ -1,0 +1,235 @@
+/* =========================
+   VIDEO BACKDROP
+   ========================= */
+.wrap {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 70% at 50% 35%, rgba(0,0,0,.26) 0%, rgba(0,0,0,.72) 100%);
+  z-index: 1;
+}
+
+/* =========================
+   CENTERED COLUMN
+   ========================= */
+.cardWrap {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1120px;                 /* a touch wider, like the reference */
+  margin: 0 auto;
+  padding: 112px 24px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.heading {
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(18px, 2.1vw, 22px);
+  letter-spacing: .2px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+/* =========================
+   FORM CARD
+   ========================= */
+.card {
+  width: 100%;
+  background: #eef1f5;               /* soft light-grey card */
+  border-radius: 18px;
+  padding: 32px 40px;
+  box-shadow: 0 28px 70px rgba(0,0,0,.36);
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+/* GRID */
+.rowTwo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.field { margin-bottom: 20px; }
+
+/* LABELS */
+.label {
+  display: block;
+  color: #5a6170;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.req { color: #8f95a3; }
+
+/* =========================
+   CONTROLS (PILL LOOK)
+   ========================= */
+.input,
+.select,
+.num {
+  box-sizing: border-box;
+  width: 100%;
+  height: 56px;                       /* a bit taller */
+  line-height: 56px;
+  border-radius: 9999px;              /* full pill */
+  background: #fff;
+  border: 1px solid #e4e7ee;
+  padding: 0 20px;
+  font: inherit;
+  font-size: 15px;
+  color: #1e2430;
+  outline: none;
+  /* subtle “soft” feel inside */
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.8),
+    0 0 0 1px rgba(0,0,0,0);          /* crisp edge (no extra ring) */
+  transition: box-shadow .2s ease, border-color .2s ease, background-color .2s ease;
+}
+.input::placeholder,
+.num::placeholder { color: #a1a6b2; }
+
+.input:focus,
+.select:focus,
+.num:focus {
+  border-color: #cbd2e6;
+  box-shadow: 0 0 0 4px rgba(0, 20, 137, .12);
+}
+
+/* SELECT (custom chevron, same height) */
+.select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 48px;                /* room for chevron */
+  background:
+    linear-gradient(45deg, transparent 50%, #8a8f9c 50%)  calc(100% - 26px) 50%/8px 8px no-repeat,
+    linear-gradient(135deg, #8a8f9c 50%, transparent 50%) calc(100% - 20px) 50%/8px 8px no-repeat;
+  background-color: #fff;
+}
+
+/* =========================
+   PHONE ROW (country + number)
+   ========================= */
+.phoneRow {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;  /* desktop ratio like reference */
+  gap: 16px;
+  align-items: center;
+}
+.num { text-align: left; }
+
+/* =========================
+   TEXTAREA
+   ========================= */
+.textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 110px;
+  border-radius: 20px;                /* rounded, not full pill */
+  border: 1px solid #e4e7ee;
+  background: #fff;
+  padding: 14px 20px;
+  font: inherit;
+  font-size: 15px;
+  color: #1e2430;
+  outline: none;
+  resize: vertical;
+  line-height: 1.45;
+}
+.textarea:focus {
+  border-color: #cbd2e6;
+  box-shadow: 0 0 0 4px rgba(0, 20, 137, .12);
+}
+
+/* =========================
+   FILE DROP
+   ========================= */
+.dropzone {
+  width: 100%;
+  height: 68px;
+  border-radius: 18px;
+  border: 2px dashed #cfd3dd;
+  background: #ffffff;
+  display: grid;
+  place-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.file { display: none; }
+.plus  { font-size: 20px; color: #8a909e; line-height: 1; }
+.addText { font-size: 12px; color: #6b7180; }
+
+/* =========================
+   SUBMIT
+   ========================= */
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.submit {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  background: #f3b23c;                /* golden */
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .03s ease, filter .2s ease;
+}
+.submit:hover  { filter: brightness(1.05); }
+.submit:active { transform: translateY(1px); }
+
+/* =========================
+   PLAY / PAUSE BUTTON
+   ========================= */
+.playPause {
+  position: absolute;
+  right: 20px;
+  top: 18px;
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,.45);
+  border: 1px solid rgba(255,255,255,.25);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+.icon { width: 20px; height: 20px; fill: #fff; }
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 1100px) {
+  .cardWrap { padding-top: 96px; }
+}
+@media (max-width: 920px) {
+  .rowTwo { grid-template-columns: 1fr; }
+  .card { padding: 28px 24px; }
+  .cardWrap { max-width: 760px; }
+  .phoneRow { grid-template-columns: 1fr 1fr; } /* still two columns on tablets */
+}
+@media (max-width: 680px) {
+  .phoneRow { grid-template-columns: 1fr; }     /* stack on small phones */
+  .input, .select, .num { height: 52px; line-height: 52px; }
+}
+@media (max-width: 560px) {
+  .heading { font-size: 18px; }
+}

@@ -1,0 +1,11 @@
+{
+  "collectionName": "components_career_string_options",
+  "info": {
+    "displayName": "String Option",
+    "icon": "bulletList"
+  },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string" }
+  }
+}

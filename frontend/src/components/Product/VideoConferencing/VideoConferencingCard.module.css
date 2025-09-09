@@ -1,0 +1,69 @@
+:root {
+  --bg: #e9e9ee;
+  --ink: #0b0b0f;
+  --card-bg: #8fb6e0;
+  --card-bg-hover: #7ea8d8;
+  --card-text: #ffffff;
+  --radius: 8px;
+}
+
+.section {
+  background: var(--bg);
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 48px 20px 60px;
+  text-align: center;
+}
+
+.heading {
+  margin: 0 0 38px;
+  font-weight: 700;
+  color: var(--ink);
+  font-size: clamp(16px, 2vw, 18px);
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+}
+
+.card {
+  background: var(--card-bg);
+  color: var(--card-text);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 24px 30px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  line-height: 1.4;
+  text-align: center;
+  min-width: 200px;
+  max-width: 220px;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.card:hover {
+  background: var(--card-bg-hover);
+  transform: translateY(-2px);
+}
+
+.card:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}

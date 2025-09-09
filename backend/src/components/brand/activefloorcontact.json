@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_activefloorcontact_activefloorcontacts",
+  "info": {
+    "displayName": "ActiveFloorContact",
+    "description": "ActiveFloor contact section with heading and background image"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

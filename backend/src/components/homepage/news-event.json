@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_homepage_news_events",
+  "info": {
+    "displayName": "News Event",
+    "description": "Single news/event item for homepage"
+  },
+  "attributes": {
+    "title": { "type": "string" },
+    "link": { "type": "string" },
+    "image": {
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.container {
+  width: 100%;
+  display: block;
+}
+
+/* Top gradient bar */
+.hero {
+  background: linear-gradient(90deg, #396cf8 0%, #5194ff 50%, #5fa0ff 100%);
+  min-height: 200px;              /* matches the slim banner feel */
+  display: flex;
+  align-items: center;
+  padding: 28px 24px;
+}
+
+/* Big white headline */
+.title {
+  color: #ffffff;
+  font-weight: 500;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  letter-spacing: 0.2px;
+  font-size: clamp(32px, 5vw, 64px); /* scales like the screenshot */
+  margin: 0;
+}
+
+/* Light grey content area */
+.content {
+  background: #ececef;            /* very light neutral grey */
+  min-height: 360px;              /* roomy empty space like the shot */
+  position: relative;
+  padding: 40px 24px 72px;
+}
+
+/* Primary CTA (white pill with subtle shadow) */
+.cta {
+  background: #ffffff;
+  color: #143b8f;                 /* deep blue text for contrast */
+  border: 0;
+  border-radius: 12px;
+  padding: 16px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.cta:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Small tagline copy near the left */
+.tagline {
+  margin: 56px 0 0;
+  color: #000;                 /* slate-ish */
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Floating WhatsApp button bottom-right */
+.whatsappFab {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.45),
+              0 2px 6px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.whatsappFab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.52),
+              0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* Simple layout tweaks for larger screens */
+@media (min-width: 992px) {
+  .hero {
+    min-height: 150px;
+    padding: 36px 64px;
+  }
+  .content {
+    padding: 56px 64px 96px;
+    min-height: 420px;
+  }
+  .cta {
+    padding: 18px 34px;
+    font-size: 19px;
+    border-radius: 14px;
+  }
+  .tagline {
+    margin-top: 72px;
+    font-size: 17px;
+  }
+}

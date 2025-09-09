@@ -1,0 +1,104 @@
+:root {
+  --blue-start: #2f63ff;
+  --blue-end:   #5b8dff;
+  --lower-bg:   #e9e9ee;
+  --ink:        #0b0b0f;
+
+  --cta-bg:     #ffffff;
+  --cta-text:   #0a2fff;
+  --cta-radius: 10px;
+}
+
+/* SECTION: gradient top + grey bottom (exact split look) */
+.section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--blue-start) 0%, var(--blue-end) 100%);
+}
+
+/* The lower light-grey band */
+.splitBg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48%;
+  background: var(--lower-bg);
+  z-index: 0;
+}
+
+/* Layout wrapper */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 54px 20px 70px; /* top aligns with screenshot spacing */
+  position: relative;
+  z-index: 1; /* above the split background */
+}
+
+/* Two centered columns */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  place-items: center;
+  gap: 80px; /* wide gap like the screenshot */
+}
+
+/* Column content */
+.col {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Image area */
+.media {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+}
+
+.image {
+  max-width: 420px;         /* left device appears large */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0,0,0,0.18)); /* subtle depth like shot */
+}
+
+/* CTA buttons: white rounded card style */
+.cta {
+  border: 0;
+  background: var(--cta-bg);
+  color: var(--cta-text);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 18px 30px;
+  border-radius: var(--cta-radius);
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+  transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.14);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .columns { gap: 56px; }
+  .image { max-width: 360px; }
+}
+
+@media (max-width: 760px) {
+  .columns { grid-template-columns: 1fr; gap: 40px; }
+  .splitBg { height: 55%; } /* keep the grey portion visible when stacked */
+  .image { max-width: 420px; }
+}

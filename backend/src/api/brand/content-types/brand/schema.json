@@ -1,0 +1,42 @@
+{
+  "collectionName": "brands",
+  "info": {
+    "singularName": "brand",
+    "pluralName": "brands",
+    "displayName": "Brand",
+    "description": "Simple brand pages (Avison, ActiveFloor, Barco...)"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "name", "required": true },
+    "description": { "type": "text" },
+    "banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand.banner"
+    },
+    "alternating_sections": {
+  "type": "component",
+  "repeatable": true,
+  "component": "brand.alternating-section"
+},
+"hardware_models": {
+  "type": "relation",
+  "relation": "oneToMany",
+  "target": "api::hardware-model.hardware-model"
+},
+"installation": {
+  "type": "component",
+  "repeatable": false,
+  "component": "brand.installation"
+},
+  "active_floor_contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "brand.activefloorcontact"
+    }
+  }
+}

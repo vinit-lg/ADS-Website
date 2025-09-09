@@ -1,0 +1,9 @@
+{
+  "collectionName": "components_sus_tomorrow",
+  "info": { "displayName": "We Care About Your Tomorrow", "icon": "leaf" },
+  "category": "sustainability",
+  "attributes": {
+    "heading": { "type": "string" },
+    "paragraph": { "type": "text" }
+  }
+}

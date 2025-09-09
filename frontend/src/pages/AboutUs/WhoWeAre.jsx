@@ -1,54 +1,131 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import WeareBanner from "../../components/AboutUs/WeareBanner";
 import WeareVideo from "../../components/AboutUs/WeareVideo";
 import TrackRecord from "../../components/AboutUs/TrackRecord";
 
-// Example video URLs (replace with your actual video paths)
-const video1 = "https://www.w3schools.com/html/mov_bbb.mp4";
-const video2 = "https://www.w3schools.com/html/mov_bbb.mp4";
-const video3 = "https://www.w3schools.com/html/mov_bbb.mp4";
-const video4 = "https://www.w3schools.com/html/mov_bbb.mp4";
-const video5 = "https://www.w3schools.com/html/mov_bbb.mp4";
+const API_URL = "http://localhost:1337";
 
+// Normalize Strapi media (handles flat objects and nested { data: { attributes } })
+const getMediaUrl = (m) => {
+  if (!m) return null;
+  if (m.url) return `${API_URL}${m.url}`;
+  if (m.data?.attributes?.url) return `${API_URL}${m.data.attributes.url}`;
+  const f =
+    m.formats?.large?.url ||
+    m.formats?.medium?.url ||
+    m.formats?.small?.url ||
+    m.formats?.thumbnail?.url;
+  return f ? `${API_URL}${f}` : null;
+};
+
+// Unwrap possible Strapi v4/v5 envelopes (data/attributes)
+const unwrap = (json) => {
+  if (!json) return null;
+  if (json.data?.attributes) return { id: json.data.id, ...json.data.attributes };
+  return json.data ?? json;
+};
 
 const WhoWeAre = () => {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const ac = new AbortController();
+
+    (async () => {
+      try {
+        // Two safe requests (avoid bannerImage[related]!)
+        const [sectionsRes, bannerRes] = await Promise.all([
+          fetch(
+            `${API_URL}/api/who-we-are?populate[sections][populate]=*`,
+            { signal: ac.signal }
+          ),
+          fetch(
+            `${API_URL}/api/who-we-are?populate[bannerImage]=true`,
+            { signal: ac.signal }
+          ),
+        ]);
+
+        if (!sectionsRes.ok) {
+          throw new Error(`Sections request failed (${sectionsRes.status})`);
+        }
+        if (!bannerRes.ok) {
+          throw new Error(`Banner request failed (${bannerRes.status})`);
+        }
+
+        const [sectionsJson, bannerJson] = await Promise.all([
+          sectionsRes.json(),
+          bannerRes.json(),
+        ]);
+
+        const s = unwrap(sectionsJson);
+        const b = unwrap(bannerJson);
+
+        // Merge: prefer banner fields from banner call; sections from sections call
+        const merged = {
+          id: s?.id || b?.id,
+          bannerTitle: b?.bannerTitle ?? s?.bannerTitle ?? "",
+          bannerSubtitle: b?.bannerSubtitle ?? s?.bannerSubtitle ?? "",
+          bannerImage: b?.bannerImage ?? s?.bannerImage ?? null,
+          sections: Array.isArray(s?.sections) ? s.sections : [],
+        };
+
+        // Debug (optional)
+        // console.log("Merged WhoWeAre payload:", merged);
+
+        setData(merged);
+      } catch (e) {
+        if (e?.name !== "AbortError") {
+          console.error("WhoWeAre fetch error:", e);
+          setError(e?.message || "Failed to load content");
+        }
+      }
+    })();
+
+    return () => ac.abort();
+  }, []);
+
+  if (error) {
+    return (
+      <div style={{ padding: "1rem", color: "crimson" }}>
+        {error}
+      </div>
+    );
+  }
+
+  if (!data) return <p>Loading...</p>;
+
+  const bannerUrl = getMediaUrl(data.bannerImage);
+
   return (
     <>
-      <WeareBanner />
-
-      <WeareVideo
-        title="1996: A startup. Today:"
-        subtitle="A global enterprise"
-        description="We pride ourselves on delivering high-quality solutions and providing excellent service and support to our clients."
-        videoSrc={video1}
+      <WeareBanner
+        title={data.bannerTitle || ""}
+        subtitle={data.bannerSubtitle || ""}
+        imageUrl={bannerUrl || ""}
       />
 
-      <TrackRecord />
-
-      <WeareVideo
-        title="Bringing Your Vision to Life"
-        description="Our team is always striving to stay up-to-date on the latest industry trends and technologies, so we can provide our clients with the best solutions for their needs."
-        videoSrc={video2}
-      />
-
-      <WeareVideo
-        title="Distribution"
-        description="We distribute high-end Audio-Visual & IT systems, bringing the latest cutting-edge technology to the region, in partnership with more than 30 leading brands. Almoe caters to a vast network of dealers & resellers and is fully capable of delivering on diverse requirements, right from generalized to highly-specific client needs."
-        videoSrc={video3}
-      />
-
-         <WeareVideo
-        title="Solution & Integration"
-        description="At Almoe Digital Solutions, we have the ability to design, implement and support the right components needed to create a technologically dynamic environment. We provide end-to-end solutions from pre-sales consultancy to designing, procuring, installing, managing and servicing the site."
-        videoSrc={video4}
-      />
-
-       <WeareVideo
-        title="Service & Support"
-        description="In today's evolving & volatile economy, businesses must ensure they are working with a dependable and responsive AV & I support provider to keep their technology up and running at all times. Our in-house Service Centre team boasts of highly qualified, technically trained & sound engineers who can extend full-fledged support to clients. We offer services like Annual Maintenance Contracts, Warranty Services, Spare Parts, Facility Management, New Business AV/IT Setup and many more."
-        videoSrc={video5}
-      />
-
+      {data.sections?.map((section, idx) => {
+        const key = section.id ?? `${section.__component}-${idx}`;
+        switch (section.__component) {
+          case "who-we-are.video-section": {
+            const videoUrl = getMediaUrl(section.backgroundVideo);
+            return (
+              <WeareVideo
+                key={key}
+                title={section.title}
+                subtitle={section.subtitle}
+                description={section.description}
+                videoSrc={videoUrl || ""}
+              />
+            );
+          }
+          case "who-we-are.track-record":
+            return <TrackRecord key={key} {...section} />;
+          default:
+            return null;
+        }
+      })}
     </>
   );
 };

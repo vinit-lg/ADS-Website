@@ -1,0 +1,239 @@
+:root {
+  --ads-text: #fff;
+  --ads-pill: #f4b23e;
+  --ads-black: #000;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.adsHeader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: transparent;
+}
+
+.adsNav {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 15px 8px;
+  justify-content: space-between;
+}
+
+.adsCaret {
+  display: none;
+}
+
+/* Logo */
+.adsLogo img {
+  height: 42px;
+  width: auto;
+  display: block;
+}
+
+/* Burger (desktop hidden) */
+.adsBurger {
+  display: none;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.adsBurger span {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  height: 2px;
+  background: #fff;
+  transition: 0.25s;
+}
+.adsBurger span:nth-child(1) {
+  top: 12px;
+}
+.adsBurger span:nth-child(2) {
+  top: 20px;
+}
+.adsBurger span:nth-child(3) {
+  top: 28px;
+}
+.isOpen span:nth-child(1) {
+  top: 20px;
+  transform: rotate(45deg);
+}
+.isOpen span:nth-child(2) {
+  opacity: 0;
+}
+.isOpen span:nth-child(3) {
+  top: 20px;
+  transform: rotate(-45deg);
+}
+
+/* Menu row */
+.adsMenu {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.adsMenuList {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Top-level items */
+.adsMenuItem {
+  position: relative;
+}
+
+.adsLink {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  color: var(--ads-text);
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size:  var(--font-body);
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.adsMenuItem:hover > .adsLink,
+.open > .adsLink {
+  background: var(--ads-pill);
+  color: #fff;
+}
+
+/* Dropdown */
+.adsDropdown {
+  position: absolute;
+  top: calc(100% + 0px);
+  left: 0;
+  min-width: 320px;
+  background: var(--ads-black);
+  border-radius: 18px;
+  padding: 14px 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  z-index: 10000;
+}
+.adsDropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.adsDropdown ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+}
+
+li{
+  margin-bottom: 0px;
+}
+.adsDropdown li a {
+  display: block;
+  padding: 5px 8px;
+  border-radius: 10px;
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: var(--font-body);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease;
+}
+.adsDropdown li a:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Actions */
+.adsActions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.adsCall {
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: var(--ads-pill);
+  color: #fff;
+  font-family: var(--font-family);
+  font-weight: 300;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+.adsSocial{
+  display: inline-flex;
+  gap: 10px;
+  color: #fff;
+}
+
+.adsSocial svg{
+  color: #fff;
+}
+
+/* Mobile */
+@media (max-width: 1060px) {
+  .adsBurger {
+    display: inline-flex;
+  }
+  .adsMenu {
+    position: fixed;
+    inset: 72px 0 0 0;
+    background: #000;
+    flex-direction: column;
+    padding: 20px;
+    transform: translateY(-8px);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+  }
+  .adsMenu.show {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .adsMenuList {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .adsDropdown {
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    pointer-events: auto;
+    display: none;
+  }
+  .adsDropdown.show {
+    display: block;
+  }
+  .adsDropdown li a {
+    padding: 8px 0 8px 20px;
+  }
+}

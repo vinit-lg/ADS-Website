@@ -1,0 +1,45 @@
+/* SECTION BACKGROUND + TEXT */
+.boxSection {
+  background: #ececef;   /* light grey background like screenshot */
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.boxHeading {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 40px 0;
+  color: #000;
+}
+
+/* GRID LAYOUT */
+.boxGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* BUTTONS */
+.boxButton {
+  background: #06027a;  /* dark blue */
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.boxButton:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.boxButton:active {
+  transform: translateY(1px);
+}

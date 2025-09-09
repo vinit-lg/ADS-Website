@@ -1,0 +1,62 @@
+/* Full-width hero with solid deep-blue background */
+.banner {
+  /* exact deep navy look */
+  background: #02008a;            /* adjust to #00008b if you prefer */
+  width: 100%;
+  min-height: 300px;               /* height matches screenshot feel */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center column */
+.inner {
+  width: 100%;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 40px 16px;              /* balances vertical rhythm */
+  text-align: center;
+}
+
+/* Big bold white heading */
+.title {
+  color: #ffffff;
+  font-weight: 600;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  letter-spacing: 0.3px;
+  font-size: 42px;
+  text-wrap: balance;
+}
+
+/* White pill/rounded rectangle CTA centered under the title */
+.ctaButton {
+  appearance: none;
+  border: none;
+  cursor: pointer;
+
+  background: #ffffff;
+  color: #02008a;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+
+  padding: 16px 28px;
+  border-radius: 8px;              /* same rounded look */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.ctaButton:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+.ctaButton:active {
+  transform: translateY(1px);
+}
+
+/* Keep proportions tidy on small screens */
+@media (max-width: 520px) {
+  .banner { min-height: 260px; }
+  .title { margin-bottom: 20px; }
+}

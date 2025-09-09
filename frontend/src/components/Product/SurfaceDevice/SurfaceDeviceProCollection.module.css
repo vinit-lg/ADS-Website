@@ -1,0 +1,113 @@
+:root {
+  --ink: #0b0b0f;
+  --muted: #3a3f49;
+  --card-bg: #e9e9ee;
+  --btn-bg: #0b0b0f;
+  --btn-bg-hover: #1a1a1f;
+  --btn-text: #ffffff;
+  --radius: 10px;
+}
+
+.section {
+  background: #ffffff;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+.heading {
+  margin: 10px 0 14px;
+  text-align: center;
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: clamp(28px, 4.4vw, 48px);
+}
+
+.description {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Two equal cards side-by-side like the screenshot */
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 44px;
+  justify-content: center;
+}
+
+/* Card box with soft gray background */
+.card {
+  background: var(--card-bg);
+  border-radius: 4px;
+  padding: 28px 24px 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image area (keeps device nicely sized and centered) */
+.media {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: grid;
+  place-items: center;
+  margin-bottom: 16px;
+}
+
+.image {
+  max-width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Product name */
+.title {
+  margin: 6px 0 18px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Black rounded button */
+.cta {
+  border: 0;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.cta:hover {
+  background: var(--btn-bg-hover);
+  transform: translateY(-1px);
+}
+
+.cta:active {
+  transform: translateY(0);
+}
+
+/* Responsiveness: stack cards on small screens like the site does */
+@media (max-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}

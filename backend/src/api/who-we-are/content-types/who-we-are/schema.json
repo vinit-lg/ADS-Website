@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "who_we_are",
+  "info": {
+    "singularName": "who-we-are",
+    "pluralName": "who-we-ares",
+    "displayName": "Who We Are"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "bannerTitle": { "type": "string" },
+    "bannerSubtitle": { "type": "string" },
+    "bannerImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "sections": {
+      "type": "dynamiczone",
+      "components": [
+        "who-we-are.video-section",
+        "who-we-are.track-record"
+      ]
+    }
+  }
+}

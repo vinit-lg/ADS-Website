@@ -1,0 +1,75 @@
+/* Section background and spacing */
+.wrap {
+  width: 100%;
+  background: #e8e6eb; /* soft grey-lilac like the screenshot */
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 36px 24px 64px;
+}
+
+/* Heading */
+.heading {
+  margin: 0 0 24px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+/* 2x2 grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+  gap: 20px 24px;
+  justify-items: center;
+}
+
+/* Cards (look like white rounded buttons) */
+.card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 64px;
+
+  background: #ffffff;
+  color: #111111;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02), 0 8px 18px rgba(0, 0, 0, 0.06);
+
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  white-space: nowrap;
+}
+
+/* Subtle hover/focus for polish without changing the design */
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.09);
+}
+
+.card:active {
+  transform: translateY(0);
+}
+
+.card:focus-visible {
+  outline: 3px solid rgba(17, 17, 17, 0.2);
+  outline-offset: 2px;
+}
+
+/* Mobile: single column keeps exact look */
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

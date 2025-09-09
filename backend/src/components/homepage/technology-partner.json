@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_homepage_technology_partners",
+  "info": {
+    "displayName": "Technology Partner",
+    "icon": "handshake",
+    "description": "Technology partner call-to-action section"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "Partner With Us"
+    },
+    "buttonLink": {
+      "type": "string",
+      "default": "/contactus"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

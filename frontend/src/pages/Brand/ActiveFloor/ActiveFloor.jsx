@@ -2,6 +2,7 @@ import ActiveFloorBanner from "../../../components/Brand/ActiveFloor/ActiveFloor
 import ActiveFloorAlternatingSections from "../../../components/Brand/ActiveFloor/ActiveFloorAlternatingSections";
 import HardwareModels from "../../../components/Brand/ActiveFloor/HardwareModels";
 import ActiveFloorInstallation from "../../../components/Brand/ActiveFloor/ActiveFloorInstallation";
+import ActiveFloorContact from "../../../components/Brand/ActiveFloor/ActiveFloorContact";
 
 const ActiveFloor = () => (
   <>
@@ -9,6 +10,7 @@ const ActiveFloor = () => (
     <ActiveFloorAlternatingSections />
     <HardwareModels />
     <ActiveFloorInstallation />
+    < ActiveFloorContact />
   </>
 );
 

@@ -1,0 +1,200 @@
+:root {
+  --blue-900: #0b2f8a;
+  --blue-800: #0d37a3;
+  --red-500: #e31b1b;
+  --text: #ffffff;
+  --muted: #e6ebff;
+  --radius: 28px;
+}
+
+.wrap {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 0;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mosaic {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 180px;
+  gap: 24px;
+  padding: 48px 32px 56px 32px;
+  background: #fff;
+}
+.tile {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #f3f5f9;
+  box-shadow: 0 0 0 1px rgba(16, 24, 40, 0.04) inset;
+}
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* .tSmall {} */
+.tPortrait {
+  grid-row: span 1;
+}
+.tWide {
+  grid-column: span 1;
+}
+.tPrinter {
+  grid-column: span 1;
+}
+
+.tileCircleRed {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: var(--red-500);
+  border-radius: 9999px;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+.alarmIcon {
+  display: grid;
+  place-items: center;
+}
+.iconSvg {
+  width: 64px;
+  height: 64px;
+  fill: var(--text);
+}
+
+.tileCircleBlue {
+  position: relative;
+  display: grid;
+  place-items: center;
+  background: #1c2a44;
+  border-radius: 9999px;
+  width: 160px;
+  height: 160px;
+  justify-self: center;
+}
+.whiteMiniBox {
+  width: 92px;
+  height: 92px;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+}
+
+.panel {
+  background: var(--blue-800);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 56px 48px;
+}
+.copy {
+  max-width: 560px;
+}
+.title {
+  font-weight: 500;
+  font-size: 56px;
+  letter-spacing: 0.2px;
+  margin: 0 0 24px 0;
+  color: #fff;
+}
+.desc {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 0 0 28px 0;
+}
+
+.cta {
+  background: #fff;
+  color: #0c2f89;
+  border: none;
+  border-radius: 9999px;
+  font-weight: 700;
+  padding: 16px 28px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.06), 0 6px 14px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+}
+.cta:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.perk {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+  margin-top: 24px;
+}
+.giftIcon {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+}
+.perkText {
+  font-weight: 600;
+}
+
+.tnc {
+  display: inline-block;
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-weight: 600;
+}
+.tnc:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1200px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+  .panel {
+    padding: 48px 32px 64px;
+  }
+  .title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mosaic {
+    grid-auto-rows: 140px;
+    gap: 14px;
+    padding: 24px;
+  }
+  .tileCircleRed {
+    width: 180px;
+    height: 180px;
+  }
+  .tileCircleBlue {
+    width: 140px;
+    height: 140px;
+  }
+  .title {
+    font-size: 36px;
+  }
+  .desc {
+    font-size: 16px;
+  }
+  .cta {
+    width: 100%;
+  }
+}

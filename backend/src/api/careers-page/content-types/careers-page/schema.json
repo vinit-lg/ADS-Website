@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "careers_pages",
+  "info": {
+    "singularName": "careers-page",
+    "pluralName": "careers-pages",
+    "displayName": "Careers Page"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "banner": {
+      "type": "component",
+      "repeatable": false,
+      "component": "career.banner"
+    },
+    "thinkSections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career.think-section"
+    },
+    "contact": {
+      "type": "component",
+      "repeatable": false,
+      "component": "career.contact"
+    }
+  }
+}

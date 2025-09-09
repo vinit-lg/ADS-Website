@@ -1,0 +1,93 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #1f2a98 0%, #0a0f5c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  color: #fff;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 2rem;
+}
+
+.left {
+  flex: 1;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.copy {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 500px;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 1rem;
+}
+
+.primaryBtn {
+  background: #001aff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.primaryBtn:hover {
+  background: #3340ff;
+}
+
+.secondaryBtn {
+  background: #fff;
+  color: #001aff;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #001aff;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondaryBtn:hover {
+  background: #001aff;
+  color: #fff;
+}
+
+.right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.phone {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_brand_banner",
+  "info": {
+    "displayName": "banner",
+    "description": "Banner fields for a brand page"
+  },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string" },
+    "subtitle": { "type": "text" },
+      "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["videos"]
+    },
+    "overlayImage": { "type": "media", "multiple": false }
+  }
+}

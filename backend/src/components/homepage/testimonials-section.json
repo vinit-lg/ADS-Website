@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_homepage_testimonials_sections",
+  "info": {
+    "displayName": "Testimonials Section",
+    "description": "Wrapper for testimonials with heading"
+  },
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.testimonial"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sus_highlight_items",
+  "info": {
+    "displayName": "Highlight Item",
+    "icon": "bulletList"
+  },
+  "category": "sustainability",
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "text": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

@@ -1,0 +1,88 @@
+:root {
+  --bg-light: #ffffff;         /* white section */
+  --bg-grey: #ececf1;          /* light grey like screenshot */
+  --text-dark: #0f0f12;
+  --text-muted: #2e2e2e;
+  --blue: #0b0b9c;             /* CTA background (deep blue) */
+  --blue-hover: #080886;
+  --radius: 12px;
+  --max: 1200px;
+}
+
+/* Section backgrounds */
+.section { width: 100%; }
+.bgLight { background: var(--bg-light); }
+.bgGrey  { background: var(--bg-grey); }
+
+/* Two-column shell */
+.inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 54px 22px;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;  /* image a hair larger by default */
+  align-items: center;
+  gap: 38px;
+}
+
+.reverse { grid-auto-flow: dense; } /* enables reordering with only CSS below */
+
+/* Media first by default; swap when reversed */
+.media { order: 1; display: flex; align-items: center; justify-content: center; }
+.copy  { order: 2; }
+
+.reverse .media { order: 2; }
+.reverse .copy  { order: 1; }
+
+/* Image */
+.photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;          /* product images keep proportions */
+}
+
+/* Text block */
+.title {
+  margin: 0 0 14px 0;
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 42px
+}
+
+.desc {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 640px;
+  margin: 10px 0 22px;
+}
+
+/* CTA */
+.button {
+  display: inline-block;
+  background: var(--blue);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  box-shadow: 0 6px 14px rgba(0,0,0,.12);
+}
+.button:hover { background: var(--blue-hover); transform: translateY(-2px); }
+.button:active { transform: translateY(0); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 42px 18px;
+  }
+  .media, .copy { order: initial; }      /* natural flow on mobile */
+  .reverse .media, .reverse .copy { order: initial; }
+  .photo { max-width: 560px; margin: 0 auto; }
+  .title { font-size: clamp(26px, 7vw, 40px); }
+}

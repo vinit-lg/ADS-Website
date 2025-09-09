@@ -1,0 +1,37 @@
+.technologyPartner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 650px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  font-size: var(--font-h2);
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.btnWrapper {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.btnTech{
+  padding: 16px 96px;
+  font-weight: 600;
+  cursor: pointer;
+}

@@ -1,0 +1,86 @@
+.banner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000; /* fallback while video loads */
+}
+
+/* Video fills the banner */
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Row with breadcrumb (left) and play/pause (right) */
+.row {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* compact page-safe padding */
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Breadcrumb look like screenshot */
+.breadcrumb {
+  color: #e7e7eb;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Play/Pause small circular pill on the right */
+.control {
+  width: 26px;
+  height: 26px;
+  border: none;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0c1c8c;          /* deep blue icon color */
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.24);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+.control:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.28);
+}
+
+/* Subtle fades to help text/controls pop over bright videos */
+.fadeTop,
+.fadeBottom {
+  position: absolute;
+  left: 0; right: 0;
+  height: 18px;
+  z-index: 1;
+  pointer-events: none;
+}
+.fadeTop {
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0));
+}
+.fadeBottom {
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.15), rgba(0,0,0,0));
+}
+
+/* Light grey divider bar under the banner (like your screenshot) */
+.divider {
+  width: 100%;
+  height: 14px;
+  background: #e8e7ec;
+}

@@ -1,0 +1,56 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "herosection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.hero-section"
+    },
+  "statsHighlights": {
+  "type": "component",
+  "repeatable": false,
+  "component": "homepage.stats-highlights"
+},
+"aboutSection": {
+  "type": "component",
+  "repeatable": false,
+  "component": "homepage.about-section"
+},
+"brandSlider": {
+  "type": "component",
+  "repeatable": false,
+  "component": "homepage.brand-slider"
+},
+"technologyPartner": {
+  "type": "component",
+  "repeatable": false,
+  "component": "homepage.technology-partner"
+},
+"newsEventsSection": {
+  "type": "component",
+  "repeatable": false,
+  "component": "homepage.news-events-section"
+},
+ "testimonialsSection": {
+  "type": "component",
+  "repeatable": false,
+  "component": "homepage.testimonials-section"
+},
+"clientContact": {
+  "type": "component",
+  "repeatable": false,
+  "component": "homepage.client-contact"
+}
+
+  }
+}

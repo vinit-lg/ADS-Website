@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_homepage_brand_sliders",
+  "info": {
+    "displayName": "Brand Slider",
+    "icon": "images",
+    "description": "Carousel of brands with heading and logos"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "logos": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": ["images"]
+    },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["videos"]
+    }
+  }
+}

@@ -1,0 +1,122 @@
+/* Container that holds multiple banners back-to-back */
+.wrap {
+  width: 100%;
+}
+
+/* One banner */
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 420px; /* visual height from screenshot */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* Darkening overlay for readable white text */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 20, 26, 0.45);
+}
+
+/* Layout for content */
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1240px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 56px 24px; /* room around the text block */
+  display: grid;
+  justify-items: start;
+  align-items: center;
+}
+
+/* Text block placement (left/right) */
+.alignLeft .inner {
+  justify-items: start;
+}
+.alignRight .inner {
+  justify-items: end;
+}
+
+.content {
+  width: min(680px, 92vw);
+}
+
+/* Title – large, bold, white */
+.title {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 42px;
+  letter-spacing: 0.2px;
+}
+
+/* Paragraph – white with slight transparency */
+.text {
+  margin: 0 0 20px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* CTA – white pill with deep-blue text, subtle shadow */
+.cta {
+  background: #ffffff;
+  color: #0c1c8c;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 22px;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+}
+
+/* Thin divider line at the bottom (matches screenshot accent) */
+.divider {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: rgba(221, 190, 119, 0.55); /* warm gold-beige hint */
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .section {
+    min-height: 400px;
+  }
+  .inner {
+    padding: 44px 20px;
+  }
+  .content {
+    width: min(740px, 100%);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    min-height: 380px;
+  }
+  .inner {
+    padding: 32px 18px;
+  }
+  .title {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+  .text {
+    font-size: 14px;
+  }
+}

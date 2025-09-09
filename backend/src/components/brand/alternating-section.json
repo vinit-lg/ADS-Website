@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_brand_alternating_sections",
+  "info": {
+    "displayName": "Alternating Section",
+    "icon": "columns",
+    "description": "Content blocks with alternating text + image layout"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "cta": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer",
+      "default": 0
+    }
+  }
+}

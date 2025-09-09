@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_who_we_are_track_records",
+  "info": {
+    "displayName": "Track Record",
+    "icon": "chart-line"
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat"
+    }
+  }
+}

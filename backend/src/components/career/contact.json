@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_career_contacts",
+  "info": {
+    "displayName": "Contact Section",
+    "icon": "phone",
+    "description": "Video background + form config for Careers page"
+  },
+  "options": {},
+  "attributes": {
+    "heading": { "type": "string", "required": true },
+
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["videos"]
+    },
+    "poster": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+
+    "countries": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career.country"
+    },
+    "locations": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career.string-option"
+    },
+    "employmentStatuses": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career.string-option"
+    },
+    "jobFields": {
+      "type": "component",
+      "repeatable": true,
+      "component": "career.string-option"
+    }
+  }
+}

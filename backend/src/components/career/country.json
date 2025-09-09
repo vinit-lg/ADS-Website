@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_career_countries",
+  "info": {
+    "displayName": "Country",
+    "icon": "flag"
+  },
+  "options": {},
+  "attributes": {
+    "label": { "type": "string"},  
+    "dialCode": { "type": "string" },   
+    "iso2": { "type": "string" } 
+  }
+}

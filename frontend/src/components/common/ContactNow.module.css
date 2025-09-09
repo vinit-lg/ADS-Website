@@ -1,0 +1,120 @@
+:root {
+  --min-h: 560px;
+  --overlay: 0.35;
+}
+
+.section {
+  position: relative;
+  min-height: var(--min-h);
+  background: var(--decor-img) right top / 38% auto no-repeat,
+    var(--decor-img) left -40px top -40px / 36% auto no-repeat,
+    var(--bg-img) center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* darkening layer for readability */
+.section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, var(--overlay));
+  z-index: 0;
+}
+
+/* subtle white circle bottom-left like reference (optional accent) */
+.section::after {
+  content: "";
+  position: absolute;
+  left: 48px;
+  bottom: 44px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 14px 24px rgba(0, 0, 0, 0.18);
+  opacity: 0.95;
+}
+
+/* CONTENT */
+.inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 980px;
+  padding: 0 20px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Headline */
+.title {
+  margin: 0 0 26px;
+  font-weight: 600;
+  font-size: 28px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.line {
+  display: block;
+  position: relative;
+}
+
+/* thin white underline under the second line */
+.underline {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  height: 4px;
+  width: 260px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* CTA button */
+.cta {
+  border: none;
+  background: #fff;
+  color: #e18a1b; /* warm orange text */
+  font-weight: 700;
+  font-size: 16px;
+  padding: 16px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 36px rgba(0, 0, 0, 0.26);
+}
+.cta:active {
+  transform: translateY(0);
+}
+
+/* Responsive tweaks */
+@media (max-width: 820px) {
+  .section {
+    background: var(--decor-img) right -40px top -40px / 50% auto no-repeat,
+      var(--bg-img) center / cover no-repeat;
+  }
+  .underline {
+    width: 200px;
+  }
+}
+
+@media (max-width: 560px) {
+  .section::after {
+    width: 56px;
+    height: 56px;
+    left: 20px;
+    bottom: 24px;
+  }
+  .underline {
+    width: 160px;
+  }
+}

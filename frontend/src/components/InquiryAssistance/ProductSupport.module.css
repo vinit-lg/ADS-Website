@@ -1,0 +1,185 @@
+/* ====== Page background + motif ====== */
+:root{
+  --bg-top: #243b65;
+  --bg-bot: #0f2547;
+  --text: #eaf1ff;
+  --muted: #cfdaf5;
+  --line: rgba(255,255,255,0.28);
+  --glass-top: rgba(210,228,255,0.22);
+  --glass-bot: rgba(172,198,245,0.16);
+  --focus: rgba(122,160,255,0.28);
+}
+
+.wrap{
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bot) 100%);
+  overflow-x: hidden;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+}
+
+/* Concentric “rings” behind the form */
+.rings{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(1200px 600px at 50% 85%,
+      rgba(10,25,55,0.0) 0%,
+      rgba(10,25,55,0.0) 25%,
+      rgba(0,0,0,0.15) 26%,
+      rgba(0,0,0,0.15) 27%,
+      rgba(10,25,55,0.0) 28%,
+      rgba(10,25,55,0.0) 44%,
+      rgba(0,0,0,0.15) 45%,
+      rgba(0,0,0,0.15) 46%,
+      rgba(10,25,55,0.0) 47%,
+      rgba(10,25,55,0.0) 63%,
+      rgba(0,0,0,0.15) 64%,
+      rgba(0,0,0,0.15) 65%,
+      rgba(10,25,55,0.0) 66%,
+      rgba(10,25,55,0.0) 100%),
+    radial-gradient(1400px 700px at 50% 92%,
+      rgba(255,255,255,0.08) 0%,
+      rgba(255,255,255,0.05) 30%,
+      rgba(255,255,255,0.00) 60%);
+  pointer-events: none;
+  filter: blur(0.2px);
+  opacity: 0.9;
+}
+
+/* ====== Container / header ====== */
+.container{
+  position: relative;
+  z-index: 1;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 72px 24px 110px;
+}
+
+.header{
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.title{
+  margin: 0 0 8px 0;
+  font-weight: 700;
+  font-size: clamp(28px, 4.5vw, 36px);
+  letter-spacing: .3px;
+}
+
+.subtitle{
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.35;
+  opacity: .9;
+}
+
+/* ====== Form ====== */
+.form{
+  width: min(760px, 100%);
+  margin: 0 auto;
+}
+
+.block{ margin-top: 10px; }
+.labelRow{ margin: 8px 6px; }
+
+.label{
+  font-size: 11.5px;
+  color: #dbe6ff;
+}
+.label em{ font-style: normal; opacity: .85; }
+
+.subLabel{
+  display: block;
+  font-size: 10.5px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  letter-spacing: .2px;
+}
+
+.grid2{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 640px){
+  .grid2{ grid-template-columns: 1fr; }
+}
+
+.fieldGroup{ display: flex; flex-direction: column; }
+
+/* ====== Inputs (glassy) ====== */
+.input{
+  width: 100%;
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, var(--glass-top), var(--glass-bot));
+  color: #eef3ff;
+  outline: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 2px 14px rgba(0, 20, 70, 0.22);
+  transition: box-shadow .16s ease, border-color .16s ease;
+  backdrop-filter: blur(8px);
+}
+
+.input::placeholder{ color: rgba(233,240,255,.6); }
+
+.input:focus{
+  border-color: rgba(255,255,255,.45);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.18),
+    0 0 0 4px var(--focus),
+    0 6px 22px rgba(8, 30, 110, .35);
+}
+
+.textarea{
+  height: 120px;
+  padding: 12px 18px;
+  border-radius: 18px;
+  resize: vertical;
+}
+
+.helper{
+  margin: 6px 12px 0;
+  font-size: 10.5px;
+  color: rgba(219,230,255,.95);
+}
+
+/* ====== Actions / Submit ====== */
+.actions{
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.submit{
+  min-width: 96px;
+  height: 36px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+  background: linear-gradient(180deg, #ffcc72 0%, #f7a21e 60%, #f39a12 100%);
+  color: #172138;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(250,173,20,.35), inset 0 1px 0 rgba(255,255,255,.35);
+  transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+}
+
+.submit:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(250,173,20,.45), inset 0 1px 0 rgba(255,255,255,.45);
+  filter: brightness(1.03);
+}
+
+.submit:active{
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(250,173,20,.35);
+}

@@ -1,0 +1,139 @@
+/* Overall section */
+.section {
+  width: 100%;
+  background: #f0f0f2; /* light gray like screenshot */
+  color: #0b0b0b;
+  padding: 48px 32px; /* generous vertical padding */
+  box-sizing: border-box;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Keep layout centered and constrained */
+.inner {
+  max-width: 1150px;
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+/* Left column with big heading */
+.left {
+  width: 38%;
+  min-width: 260px;
+}
+
+.headline {
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  font-size: 48px; /* large to match screenshot */
+  color: #0b0b0b;
+}
+
+/* Slight styling for brand word */
+.brand {
+  display: inline-block;
+  color: #0b0b0b;
+}
+
+/* Right column with features */
+.right {
+  width: 62%;
+}
+
+/* List: vertical stack */
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Each feature row */
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding-right: 8px;
+}
+
+/* Check icon container */
+.check {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Slightly scale svg to keep crisp */
+.checkSvg {
+  display: block;
+  width: 28px;
+  height: 28px;
+}
+
+/* Text block: title (bold) + description (normal) */
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Bold title part */
+.title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #0b0b0b;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+/* Description line */
+.desc {
+  font-weight: 400;
+  font-size: 14px;
+  color: #333333;
+  display: block;
+  max-width: 720px; /* match screenshot width behavior */
+}
+
+/* Bottom thin border like screenshot */
+.bottomBorder {
+  height: 6px;
+  width: 100%;
+  background: transparent;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  margin-top: 28px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .inner {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .left, .right {
+    width: 100%;
+  }
+  .headline {
+    font-size: 36px;
+  }
+  .list {
+    gap: 14px;
+  }
+  .item { gap: 12px; }
+  .desc { font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 28px 16px; }
+  .headline { font-size: 30px; }
+  .check { width: 32px; height: 32px; }
+  .checkSvg { width: 24px; height: 24px; }
+}

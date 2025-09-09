@@ -1,0 +1,72 @@
+/* Full-width gradient hero */
+.banner {
+  --grad-start: #2f5bff; /* deep left */
+  --grad-mid:   #3f6dff;
+  --grad-end:   #5a8dff; /* light right */
+
+  background: linear-gradient(90deg, var(--grad-start) 0%, var(--grad-mid) 45%, var(--grad-end) 100%);
+  min-height: 315px;            /* matches the reference height */
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Centers content with roomy side padding */
+.inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;              /* breathing room at edges */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* Big, bold white heading */
+.title {
+  margin: 0;
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  /* Responsive size roughly matching screenshot */
+  font-size: clamp(32px, 6vw, 72px);
+  text-wrap: balance;
+}
+
+/* Dark pill button on the right */
+.ctaButton {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  color: #ffffff;
+  background: #06027a;          /* deep navy as in screenshot */
+  border-radius: 12px;          /* rounded rectangle look */
+  padding: 14px 24px;
+  font-size: 16px;
+  line-height: 1;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transition: transform 0.08s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.ctaButton:hover {
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  opacity: 0.95;
+}
+
+.ctaButton:active {
+  transform: translateY(1px);
+}
+
+/* Optional: keep layout tidy on very small screens */
+@media (max-width: 520px) {
+  .inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .ctaButton {
+    margin-top: 16px;
+  }
+}

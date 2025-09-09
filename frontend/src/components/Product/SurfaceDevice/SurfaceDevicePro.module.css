@@ -1,0 +1,59 @@
+:root {
+  --bg: radial-gradient(1200px 600px at 0% 20%, #f3f5f9 0%, transparent 60%),
+        radial-gradient(1200px 600px at 100% 30%, #eef2f7 0%, transparent 60%),
+        #ffffff;
+  --ink: #0b0b0f;
+  --muted: #6b7280;
+}
+
+.section {
+  background: var(--bg);
+}
+
+.inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 28px 20px 40px;
+  text-align: center;
+}
+
+.label {
+  display: inline-block;
+  color: #6f8bff;               /* subtle brandy blue */
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  margin-bottom: 8px;
+}
+
+.title {
+  margin: 0 0 18px;
+  font-weight: 800;
+  color: var(--ink);
+  font-size: clamp(36px, 7vw, 74px);  /* big, like the screenshot */
+  line-height: 1.05;
+}
+
+.videoWrap {
+  margin: 10px auto 12px;
+  max-width: 1040px;            /* keep the device nicely sized */
+  width: 100%;
+  position: relative;
+}
+
+.video {
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.10),
+    0 2px 0 rgba(0, 0, 0, 0.02);
+  display: block;
+}
+
+/* Small screens */
+@media (max-width: 640px) {
+  .inner { padding: 24px 16px 30px; }
+  .videoWrap { max-width: 100%; }
+  .title { font-size: clamp(32px, 9vw, 54px); }
+}

@@ -1,0 +1,196 @@
+/* Page wrap matches the pale grey background */
+.wrap {
+  background: #ececef;
+  padding-bottom: 56px;
+}
+
+/* Top bar with video */
+.videoBar {
+  position: relative;
+  height: 64px;
+  overflow: hidden;
+  background: #000;
+}
+
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* fallback gradient if no video is provided */
+.bgFallback {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(1100px 200px at 30% 50%, #7b8cff55, transparent 60%),
+              radial-gradient(900px 240px at 70% 50%, #b7c6ff40, transparent 60%),
+              #000;
+}
+
+.barOverlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.barContent {
+  position: relative;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 0 16px;
+}
+
+/* Breadcrumbs (white text, subtle) */
+.breadcrumbs {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.crumb,
+.crumbCurrent {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.crumb:hover {
+  text-decoration: underline;
+}
+
+.sep {
+  display: inline-block;
+  opacity: 0.7;
+  margin: 0 8px;
+  color: #ffffff;
+}
+
+.crumbCurrent {
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* Tiny pause/play button at far right */
+.videoToggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.videoToggle:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+.videoToggle:active {
+  transform: scale(0.98);
+}
+
+/* Section title (deep, vivid blue) */
+.sectionTitle {
+  text-align: center;
+  color: #1428a0; /* close to screenshot’s royal blue */
+  font-weight: 700;
+  font-size: clamp(22px, 3.2vw, 36px);
+  margin: 48px 16px 16px;
+  letter-spacing: 0.2px;
+}
+
+/* Product grid: 5 across on desktop like the screenshot */
+.grid {
+  display: grid;
+  gap: 42px 28px;
+  padding: 8px 24px 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* Cards: clean, image first, no heavy borders—match screenshot */
+.card {
+  text-align: center;
+}
+
+.imageWrap {
+  display: block;
+  background: transparent;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 8px 18px rgba(0,0,0,0.18));
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.imageWrap:hover .image {
+  transform: translateY(-3px);
+  filter: drop-shadow(0 12px 22px rgba(0,0,0,0.22));
+}
+
+/* Blue link text under the image */
+.cardTitle {
+  display: inline-block;
+  margin-top: 14px;
+  text-decoration: none;
+  color: #1a34b8; /* bright blue like the screenshot */
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.3;
+}
+.cardTitle:hover {
+  text-decoration: underline;
+}
+
+/* Floating WhatsApp button at bottom-right */
+.whatsappFab {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: #25d366;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.45),
+              0 2px 6px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  z-index: 60;
+}
+.whatsappFab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(37, 211, 102, 0.52),
+              0 4px 10px rgba(0, 0, 0, 0.12);
+}

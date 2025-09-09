@@ -1,0 +1,67 @@
+/* Full-width gradient banner */
+.banner {
+  width: 100%;
+  background: linear-gradient(90deg, #2f49fc 0%, #538bff 100%);
+  /* keep it tall like the screenshot */
+  padding: 100px 0;
+}
+
+/* Center the content and space ends */
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  display: flex;
+  align-items: center;         /* vertically center the button with the title */
+  justify-content: space-between;
+}
+
+/* Big bold white title (matching look) */
+.title {
+  color: #ffffff;
+  font-weight: 800;
+  font-size: clamp(42px, 6vw, 64px); /* large on desktop, scales down on mobile */
+  letter-spacing: 0.2px;
+  margin: 0;
+}
+
+/* White pill button with orange text */
+.cta {
+  background: #ffffff;
+  color: #f28a18;                 /* warm orange like in the screenshot */
+  border: none;
+  border-radius: 8px;             /* subtle rounding */
+  padding: 16px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+  white-space: nowrap;
+}
+
+/* Simple hover/focus for polish (keeps “exact” feel) */
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.cta:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 2px;
+}
+
+/* Mobile stacking */
+@media (max-width: 640px) {
+  .inner {
+    align-items: flex-start;
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .cta {
+    order: 2;
+  }
+}

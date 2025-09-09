@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_brand_installation",
+  "info": {
+    "displayName": "Installation",
+    "icon": "list",
+    "description": "Two-column installation checklist for brands"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": false
+    },
+    "left_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "brand.installation-item"
+    },
+    "right_items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "brand.installation-item"
+    }
+  }
+}

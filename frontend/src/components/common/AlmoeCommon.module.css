@@ -1,0 +1,168 @@
+:root {
+  --bg: #f1f2f6;
+  --text: #0e0e11;
+  --blue: #0b0b9c;
+  --blue-hover: #090987;
+  --nav-grad-start: #4c4bd8;
+  --nav-grad-end: #2a2c9c;
+  --max: 1250px;
+}
+
+/* Section */
+.sliderSection {
+  background: var(--bg);
+  width: 100%;
+  padding: 42px 18px 64px;
+}
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+/* Heading */
+.heading {
+  text-align: center;
+  color: var(--text);
+  font-weight: 500;
+  font-size: clamp(28px, 4.6vw, 56px);
+}
+
+/* Slick root & arrows */
+.sliderWrap {
+  position: relative;
+}
+.slickRoot :global(.slick-list) {
+  padding: 6px 48px !important;
+} /* breathing room like screenshot */
+.slickRoot :global(.slick-slide) {
+  display: flex;
+  justify-content: center;
+}
+
+/* Each card gets its own fixed width to mimic the grid spacing */
+.cardOuter {
+  padding: 0 27px;
+} /* gap between cards (left + right = 54px) */
+
+/* Card */
+.card {
+  width: 320px; /* desktop card width for consistent layout */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+.imageBox {
+  width: 100%;
+  height: 270px;
+  display: grid;
+  place-items: center;
+}
+.imageBox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.cardTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* CTA button */
+.cta {
+  display: inline-block;
+  margin-top: 2px;
+  color: #fff;
+  background: var(--blue);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.cta:hover {
+  background: var(--blue-hover);
+  transform: translateY(-2px);
+}
+.cta:active {
+  transform: translateY(0);
+}
+
+/* Custom nav arrows (overlapping the first/last card like screenshot) */
+.navBtn {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  transform: translateY(-50%);
+  width: 68px;
+  height: 68px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  background: radial-gradient(
+    110% 110% at 30% 30%,
+    var(--nav-grad-start) 0%,
+    var(--nav-grad-end) 100%
+  );
+  display: grid;
+  place-items: center;
+}
+.left {
+  left: 0;
+  transform: translate(-20%, -50%);
+}
+.right {
+  right: 0;
+  transform: translate(20%, -50%);
+}
+.chev {
+  width: 28px;
+  height: 28px;
+}
+
+/* Tweak sizes on breakpoints to match the screenshot feel */
+@media (max-width: 1180px) {
+  .card {
+    width: 300px;
+  }
+  .imageBox {
+    height: 250px;
+  }
+}
+@media (max-width: 900px) {
+  .cardOuter {
+    padding: 0 19px;
+  }
+  .card {
+    width: 320px;
+  }
+  .imageBox {
+    height: 230px;
+  }
+  .navBtn {
+    width: 56px;
+    height: 56px;
+  }
+  .chev {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (max-width: 560px) {
+  .card {
+    width: 85vw;
+  }
+  .imageBox {
+    height: 210px;
+  }
+  .left,
+  .right {
+    transform: translateY(-50%);
+  } /* keep inside on phones */
+}

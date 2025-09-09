@@ -14,7 +14,7 @@ function Homepage() {
       <HeroSection />
        <StatsHighlights />
        <AboutSection />
-      {/* <BrandSlider /> */}
+      <BrandSlider />
        <TechnologyPartner/>
       <NewsEvents />
        <Testimonials />

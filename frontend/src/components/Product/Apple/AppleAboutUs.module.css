@@ -1,0 +1,60 @@
+.section {
+  background: #ffffff;
+  color: #111111;
+  padding: 40px 20px 80px;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Big, bold page heading on the left */
+.title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  margin: 0 0 28px 0;
+  text-align: left;
+  line-height: 1.1;
+  font-size: clamp(32px, 6vw, 64px);
+}
+
+/* Amber content card centered under the title */
+.card {
+  background: #db9839;            /* warm amber like the screenshot */
+  margin: 0 auto;
+  width: min(1080px, 90%);
+  padding: clamp(18px, 3vw, 34px) clamp(20px, 4vw, 42px);
+  border-radius: 2px;              /* almost square corners */
+  box-shadow: none;                /* clean, flat look */
+}
+
+/* Paragraph styling */
+.p {
+  margin: 0 0 18px 0;
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.6;
+  color: #121212;
+}
+
+.p:last-child {
+  margin-bottom: 0;
+}
+
+.p strong {
+  font-weight: 700;
+  color: #0d0d0d;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .section {
+    padding-top: 28px;
+  }
+  .title {
+    margin-bottom: 20px;
+  }
+  .card {
+    width: 94%;
+  }
+}

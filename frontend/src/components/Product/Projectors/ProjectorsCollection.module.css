@@ -1,0 +1,129 @@
+:root {
+  --ink: #0b1220;
+  --muted: #5b6472;
+  --bg: #ffffff;
+  --brand: #0a2fff;
+  --brand-hover: #0926d6;
+  --radius: 16px;
+
+  /* defaults for dynamic columns (can be overridden inline) */
+  --cols-desktop: 5;
+  --cols-tablet: 3;
+  --cols-mobile: 2;
+  --cols-small: 1;
+}
+
+.section {
+  background: radial-gradient(transparent 3px, rgba(0,0,0,0.03) 3px) 0 0/22px 22px,
+              var(--bg);
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 20px 80px;
+}
+
+.heading {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 800;
+  color: var(--ink);
+  text-align: center;
+  letter-spacing: 0.5px;
+  margin: 0 0 18px;
+}
+
+.lede {
+  max-width: 980px;
+  margin: 0 auto 48px;
+  color: var(--muted);
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.8;
+  text-align: center;
+}
+
+.grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols-desktop), minmax(0, 1fr));
+  gap: 22px;
+}
+
+@media (max-width: 1100px) {
+  .grid { grid-template-columns: repeat(var(--cols-tablet), 1fr); }
+}
+
+@media (max-width: 720px) {
+  .grid { grid-template-columns: repeat(var(--cols-mobile), 1fr); }
+}
+
+@media (max-width: 420px) {
+  .grid { grid-template-columns: repeat(var(--cols-small), 1fr); }
+}
+
+.card {
+  text-align: center;
+  padding: 18px 10px 26px;
+  border-radius: var(--radius);
+}
+
+.pictureWrap {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  margin: 6px auto 10px;
+}
+
+.picture {
+  max-width: 86%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 0 rgba(0,0,0,0.02))
+          drop-shadow(0 10px 22px rgba(0,0,0,0.06));
+}
+
+.title {
+  margin: 8px 0 14px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cta {
+  cursor: pointer;
+  border: 0;
+  padding: 12px 18px;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
+  box-shadow: 0 6px 18px rgba(10, 47, 255, 0.22);
+}
+.cta:hover { background: var(--brand-hover); transform: translateY(-1px); }
+.cta:active { transform: translateY(0); }
+
+.enquireWrap {
+  display: grid;
+  place-items: center;
+  margin-top: 42px;
+}
+
+.enquireBtn {
+  all: unset;
+  background: var(--brand);
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 10px 26px rgba(10, 47, 255, 0.28);
+  transition: background 140ms ease, transform 140ms ease, box-shadow 140ms ease;
+}
+.enquireBtn:hover { background: var(--brand-hover); transform: translateY(-1px); }
+.enquireBtn:active { transform: translateY(0); }

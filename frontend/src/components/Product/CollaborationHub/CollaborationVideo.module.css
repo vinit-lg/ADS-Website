@@ -1,0 +1,118 @@
+/* ===== Section wrapper ===== */
+.wrap {
+  background: #ffffff;
+  color: #111;
+  width: 100%;
+}
+
+/* ===== Intro (light gray panel) ===== */
+.intro {
+  background: #e9e8ec; /* soft light gray like the screenshot */
+}
+
+.introInner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 24px 20px 22px;
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-weight: 700;
+  letter-spacing: .2px;
+  line-height: 1.1;
+  font-size: clamp(26px, 4.2vw, 44px);
+}
+
+.lead {
+  margin: 0;
+  font-size: clamp(14px, 1.6vw, 18px);
+  line-height: 1.6;
+  color: #2b2b2b;
+  max-width: 900px;
+}
+
+/* ===== Breadcrumb bar ===== */
+.breadcrumbBar {
+  background: linear-gradient(90deg, #9ec0e6 0%, #6fa3d9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+}
+
+.crumbs {
+  max-width: 980px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+}
+
+.crumb {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 13px;
+  opacity: .95;
+}
+
+.crumb:hover { text-decoration: underline; }
+
+.sep {
+  color: #ffffff;
+  opacity: .9;
+  font-size: 13px;
+}
+
+.active {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+/* Play/Pause round button at right */
+.playButton {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.75);
+  color: #134a9d;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  transition: transform .14s ease, filter .14s ease;
+}
+
+.playButton:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+/* ===== Video ===== */
+.videoShell {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #000; /* fallback behind the video */
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Small screens tweaks */
+@media (max-width: 640px) {
+  .introInner { padding: 18px 16px; }
+  .breadcrumbBar { padding: 8px 12px; }
+  .playButton { width: 34px; height: 34px; }
+}

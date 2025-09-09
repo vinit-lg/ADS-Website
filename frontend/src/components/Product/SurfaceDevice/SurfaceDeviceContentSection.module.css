@@ -1,0 +1,80 @@
+:root {
+  --section-bg: #e9e9ee;      /* very light grey like the screenshot */
+  --ink: #fff;             /* heading text */
+  --muted: #595f6b;           /* paragraph text */
+  --btn-bg: #8fb6e0;          /* soft blue button */
+  --btn-bg-hover: #7ea8d8;
+  --btn-text: #ffffff;
+  --radius: 8px;
+}
+
+.section {
+  background: var(--section-bg);
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 20px 48px;
+}
+
+.heading {
+  margin: 0 0 18px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.subheading {
+  margin: 0 0 12px;
+  color: #000;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700;
+}
+
+.body {
+  margin: 0 0 34px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 1100px;
+}
+
+.buttons {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.btn {
+  border: none;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px 34px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.btn:hover {
+  background: var(--btn-bg-hover);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .buttons {
+    gap: 16px;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "singularName": "application",
+    "pluralName": "applications",
+    "displayName": "Applications",
+    "description": "Job applications submitted via Careers form"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "firstName": { "type": "string" },
+    "lastName":  { "type": "string" },
+    "email":     { "type": "email" },
+    "country":   { "type": "string" },
+    "phone":     { "type": "string" },
+    "location":  { "type": "string" },
+    "employmentStatus": {
+      "type": "string"
+    },
+    "fieldOfJob": { "type": "string" },
+    "post":       { "type": "string" },
+    "experience": { "type": "text" },
+    "cv": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["files"]
+    }
+  }
+}

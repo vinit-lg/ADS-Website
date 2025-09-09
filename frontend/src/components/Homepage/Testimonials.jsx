@@ -1,87 +1,87 @@
-import React, { useRef } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import "./Testimonials.css";
+import styles from "./Testimonials.module.css";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 
-const testimonialsData = [
-  {
-    id: 1,
-    name: "Marcus Tolledo",
-    image: "/images/testimonials-image.webp",
-    text: "Almoe Digital Solutions has truly elevated our educational experience. Their active classroom solutions have invigorated our lessons and engaged our students like never before.",
-    designation: "Marcus Tolledo (zayed University)"
-  },
-  {
-    id: 2,
-    name: "Shafeer N",
-    image: "/images/testimonials-image.webp",
-    text: "Their team demonstrated an impressive understanding of our organization's specific needs and objectives, developing tailored IT solutions.",
-      designation: "Marcus Tolledo (zayed University)"
-  },
-  {
-    id: 3,
-    name: "Renson Thomas",
-    image: "/images/testimonials-image.webp",
-    text: "Their tailored solutions have had a profound impact on our teaching practices, with seamless integration and unparalleled support.",
-      designation: "Marcus Tolledo (zayed University)"
-  },
-  {
-    id: 4,
-    name: "Additional Client",
-    image: "/images/testimonials-image.webp",
-    text: "An additional testimonial text for showing the carousel effect with more than three cards.",
-    designation: "Marcus Tolledo (zayed University)"
-  },
-];
+const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+const abs = (u) => (!u ? "" : u.startsWith("http") ? u : `${STRAPI_URL}${u}`);
 
-function Testimonials() {
-  const sliderRef = useRef(null);
+// Custom arrows
+function NextArrow({ onClick }) {
+  return (
+    <button className={`${styles.arrow} ${styles.next}`} onClick={onClick}>
+      <BsArrowRight />
+    </button>
+  );
+}
+function PrevArrow({ onClick }) {
+  return (
+    <button className={`${styles.arrow} ${styles.prev}`} onClick={onClick}>
+      <BsArrowLeft />
+    </button>
+  );
+}
+
+const Testimonials = () => {
+  const [section, setSection] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch(
+          `${STRAPI_URL}/api/homepage?populate[testimonialsSection][populate][items][populate]=image`
+        );
+        const json = await res.json();
+        console.log("Testimonials API:", json);
+
+        setSection(json?.data?.testimonialsSection || null);
+      } catch (err) {
+        console.error("Error fetching testimonials:", err);
+      }
+    })();
+  }, []);
+
+  if (!section) return null;
 
   const settings = {
-    dots: false,
     infinite: true,
-    speed: 600,
     slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false, 
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
-    <section className="testimonials-slider-section">
-        <div className="container">
-      <h2 className="section-heading">What do our clients have to say?</h2>
-      <Slider ref={sliderRef} {...settings}>
-        {testimonialsData.map(({ id, name, designation, image, text }) => (
-          <div key={id} className="testimonial-card">
-            <img src={image} alt={name} className="testimonial-image" />
-            <h3 className="testimonial-name">{name}</h3>
-            <p className="testimonial-text">“{text}”</p>
-             <p className="testimonial-designation">{designation}</p>
-          </div>
-        ))}
-      </Slider>
-      <div className="slider-buttons">
-        <button
-          className="slider-btn"
-          onClick={() => sliderRef.current.slickPrev()}
-          aria-label="Previous"
-        >
-          &#10094;
-        </button>
-        <button
-          className="slider-btn"
-          onClick={() => sliderRef.current.slickNext()}
-          aria-label="Next"
-        >
-          &#10095;
-        </button>
-      </div>
+    <section className={styles.testimonialsSection}>
+      <div className="container">
+        {/* Heading from Strapi */}
+        <h2 className={styles.heading}>{section.heading}</h2>
+
+        {/* Slider */}
+        <Slider {...settings} className={styles.slider}>
+          {section.items?.map((t) => (
+            <div key={t.id} className={styles.card}>
+              {t.image && (
+                <img
+                  src={abs(t.image.url)}
+                  alt={t.name}
+                  className={styles.image}
+                />
+              )}
+              <h3 className={styles.name}>{t.name}</h3>
+              <p className={styles.quote}>{t.quote}</p>
+              <p className={styles.designation}>{t.designation}</p>
+            </div>
+          ))}
+        </Slider>
       </div>
     </section>
   );
-}
+};
 
 export default Testimonials;

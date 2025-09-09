@@ -1,31 +1,73 @@
-import React from 'react';
-import './StatsHighlights.css'; 
-import '../../styles/button.css'
+import React, { useEffect, useState } from "react";
+import styles from "./StatsHighlights.module.css";
 
-const statsData = [
-  { id: 1, number: '30+', label: 'Years of Experience' },
-  { id: 2, number: '30+', label: 'Partner Brands Across The Globe' },
-  { id: 3, number: '20+', label: 'Authorized Service & Support Partner Brands' },
-  { id: 4, number: '3,500+', label: 'AV Installations' },
-];
+const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
 
-function StatsHighlights() {
+export default function StatsHighlights() {
+  const [section, setSection] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await fetch(
+          `${STRAPI_URL}/api/homepage?populate[statsHighlights][populate][background]=true&populate[statsHighlights][populate][stats]=true`
+        );
+        const json = await res.json();
+        console.log("StatsHighlights API:", json);
+
+        const data = json?.data?.statsHighlights;
+
+        if (data) {
+          setSection({
+            heading: data.heading,
+            background: data.background?.url
+              ? `${STRAPI_URL}${data.background.url}`
+              : "",
+            stats: data.stats || [],
+            ctaLabel: data.ctaLabel,
+            ctaLink: data.ctaLink,
+          });
+        }
+      } catch (err) {
+        console.error("Failed to fetch StatsHighlights:", err);
+      }
+    })();
+  }, []);
+
+  if (!section) return <p style={{ color: "red" }}>No stats data</p>;
+
   return (
-    <section className="stats-highlights">
+    <section
+      className={styles.statsHighlights}
+      style={{
+        backgroundImage: section.background
+          ? `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${section.background})`
+          : "none",
+      }}
+    >
       <div className="container">
-        <h2 className="stats-heading">Why Almoe Digital Solutions?</h2>
-        <div className="stats-cards">
-          {statsData.map((stat) => (
-            <div key={stat.id} className="stat-card">
-              <div className="stat-number">{stat.number}</div>
-              <div className="stat-label">{stat.label}</div>
+        {/* Heading */}
+        {section.heading && (
+          <h2 className={styles.statsHeading}>{section.heading}</h2>
+        )}
+
+        {/* Stats list */}
+        <div className={styles.statsCards}>
+          {section.stats.map((stat) => (
+            <div key={stat.id} className={styles.statCard}>
+              <div className={styles.statNumber}>{stat.number}</div>
+              <div className={styles.statLabel}>{stat.label}</div>
             </div>
           ))}
         </div>
-        <button className="button stats-button">Get Inspired</button>
+
+        {/* CTA */}
+        {section.ctaLabel && (
+          <a href={section.ctaLink} className={`btn ${styles.statsButton}`}>
+            {section.ctaLabel}
+          </a>
+        )}
       </div>
     </section>
   );
 }
-
-export default StatsHighlights;

@@ -1,0 +1,115 @@
+/* Overall white hero area with generous spacing */
+.hero {
+  position: relative;
+  background: #ffffff;
+  color: #000;
+  width: 100%;
+  overflow: hidden;
+  padding: 56px 16px 72px;
+}
+
+/* Stage + track for sliding */
+.stage {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  transition: transform 500ms cubic-bezier(.22, .61, .36, 1);
+  will-change: transform;
+}
+
+/* Each slide */
+.slide {
+  min-width: 100%;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.title {
+  margin: 8px 0 20px;
+  font-weight: 700;
+  line-height: 1.06;
+  font-size: clamp(28px, 6.2vw, 56px);
+  letter-spacing: -0.02em;
+}
+
+/* Image */
+.imageWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 6px auto 26px;
+  width: min(900px, 90vw);
+}
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* CTA button — large rounded outline */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 34px;
+  border-radius: 999px;
+  border: 3px solid #000;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .02em;
+  font-size: clamp(14px, 2.2vw, 22px);
+  color: #000;
+  transition: transform 140ms ease, background-color 140ms ease, color 140ms ease, box-shadow 140ms ease;
+}
+.cta:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+}
+
+/* Round gray arrow buttons */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #e6e7ea;
+  color: #2c2c2c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: filter 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+  box-shadow: 0 1px 3px rgba(0,0,0,.12), inset 0 0 0 1px rgba(0,0,0,.06);
+  z-index: 2;
+}
+.arrow:hover {
+  filter: brightness(0.97);
+  transform: translateY(-50%) scale(1.03);
+}
+.left { left: 40px; }
+.right { right: 40px; }
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .hero { padding: 44px 8px 60px; }
+  .left { left: 18px; }
+  .right { right: 18px; }
+}
+
+@media (max-width: 560px) {
+  .arrow { width: 40px; height: 40px; }
+  .cta { padding: 14px 26px; border-width: 2.5px; }
+}

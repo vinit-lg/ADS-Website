@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_homepage_news_events_sections",
+  "info": {
+    "displayName": "News Events Section",
+    "description": "News events with background video"
+  },
+  "attributes": {
+    "heading": { "type": "string" },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["videos"]
+    },
+    "newsItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "homepage.news-event"
+    }
+  }
+}

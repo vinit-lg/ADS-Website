@@ -34,9 +34,11 @@
 }
 
 .overlay h2 {
-  font-size: var( --font-heading-2);
+  font-size: var( --font-h2);
   margin-bottom: 10px;
   font-weight: 600;
+  width: 48%;
+  margin: 0 auto;
 }
 
 .overlay h3 {
@@ -47,5 +49,7 @@
 
 .overlay p {
   font-size: var(  --font-body);
-  line-height: 1.6;
+  margin: 20px auto;
+  width: 50%;
+  text-align: center;
 }

@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_career_banners",
+  "info": {
+    "displayName": "Banner",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "headingWords": { "type": "json" },
+    "companyName": { "type": "string" },
+    "background": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "cycleDelayMs": { "type": "integer", "default": 3000 },
+    "typeSpeedMs": { "type": "integer", "default": 120 },
+    "deleteSpeedMs": { "type": "integer", "default": 80 }
+  }
+}

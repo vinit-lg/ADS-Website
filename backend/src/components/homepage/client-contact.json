@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_client_contacts",
+  "info": {
+    "displayName": "Client Contact",
+    "description": "Contact form section for homepage"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "backgroundVideo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["videos"]
+    }
+  }
+}

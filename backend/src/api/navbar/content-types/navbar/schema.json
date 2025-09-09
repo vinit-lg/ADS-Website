@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "navbars",
+  "info": {
+    "singularName": "navbar",
+    "pluralName": "navbars",
+    "displayName": "Navbar",
+    "description": "Global navigation bar"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.menu-item"
+    },
+    "socialLinks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "navigation.social-link"
+    },
+    "callUsLabel": {
+      "type": "string",
+      "default": "Call Us"
+    },
+    "callUsNumber": {
+      "type": "string",
+      "default": "+97143912929"
+    }
+  }
+}

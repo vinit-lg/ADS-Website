@@ -1,71 +1,119 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
-import "./BrandsSlider.css";
+import styles from "./BrandSlider.module.css";
+import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { MdPauseCircleFilled, MdOutlinePlayCircleFilled } from "react-icons/md";
 
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const brandLogos = [
-  { id: 1, logoUrl: "/images/gess-dubai.webp", alt: "Brand 1" },
-  { id: 2, logoUrl: "/images/gess-dubai.webp", alt: "Brand 2" },
-  { id: 3, logoUrl: "/images/gess-dubai.webp", alt: "Brand 3" },
-  { id: 4, logoUrl: "/images/gess-dubai.webp", alt: "Brand 4" },
-  { id: 5, logoUrl: "/images/gess-dubai.webp", alt: "Brand 5" },
-  { id: 6, logoUrl: "/images/gess-dubai.webp", alt: "Brand 6" },
-  { id: 7, logoUrl: "/images/gess-dubai.webp", alt: "Brand 7" },
-  { id: 8, logoUrl: "/images/gess-dubai.webp", alt: "Brand 8" },
-];
+const STRAPI_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+const abs = (u) => (!u ? "" : u.startsWith("http") ? u : `${STRAPI_URL}${u}`);
 
-function BrandSlider() {
-  const sliderRef = useRef(null);
+// Custom arrows
+function NextArrow({ onClick }) {
+  return (
+    <div className={`${styles.arrow} ${styles.next}`} onClick={onClick}>
+      <BsArrowRight />
+    </div>
+  );
+}
+function PrevArrow({ onClick }) {
+  return (
+    <div className={`${styles.arrow} ${styles.prev}`} onClick={onClick}>
+      <BsArrowLeft />
+    </div>
+  );
+}
+
+const BrandSlider = () => {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [data, setData] = useState(null);
+
+  const toggleVideo = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  // Fetch from Strapi
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          `${STRAPI_URL}/api/homepage?populate[brandSlider][populate]=*`
+        );
+        const json = await res.json();
+        console.log("BrandSlider API:", json);
+
+        setData(json?.data?.brandSlider || null);
+      } catch (err) {
+        console.error("Error fetching BrandSlider:", err);
+      }
+    };
+    fetchData();
+  }, []);
+
+  if (!data) return null;
 
   const settings = {
-    dots: false,
     infinite: true,
-    speed: 1400,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 1800,
+    autoplaySpeed: 2000,
     arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 5 } },
-      { breakpoint: 992, settings: { slidesToShow: 4 } },
+      { breakpoint: 1024, settings: { slidesToShow: 4 } },
       { breakpoint: 768, settings: { slidesToShow: 3 } },
-      { breakpoint: 480, settings: { slidesToShow: 2 } },
+      { breakpoint: 480, settings: { slidesToShow: 2 } }
     ],
   };
 
   return (
-    <section className="brand-slider-section">
+    <section className={styles.brandSection}>
+      {/* Background video */}
+      {data.backgroundVideo && (
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={styles.bgVideo}
+        >
+          <source src={abs(data.backgroundVideo.url)} type="video/mp4" />
+        </video>
+      )}
+
+      {/* Overlay */}
       <div className="container">
-        <h2 className="brand-slider-heading">Brands We Work With</h2>
-        <div className="brandsSlider">
-        <Slider ref={sliderRef} {...settings}>
-          {brandLogos.map((brand) => (
-            <div className="brand-slide" key={brand.id}>
-              <img src={brand.logoUrl} alt={brand.alt} className="brand-logo" />
-            </div>
-          ))}
-        </Slider>
-          </div>
-        <div className="slider-buttons">
-          <button
-            onClick={() => sliderRef.current.slickPrev()}
-            className="slider-arrow left"
-            aria-label="Previous"
-          >
-            &#10094;
-          </button>
-          <button
-            onClick={() => sliderRef.current.slickNext()}
-            className="slider-arrow right"
-            aria-label="Next"
-          >
-            &#10095;
-          </button>
+        <div className={styles.overlay}>
+          <h2 className={styles.heading}>{data.heading}</h2>
+
+          <Slider {...settings} className={styles.slider}>
+            {data.logos?.map((logo) => (
+              <div key={logo.id} className={styles.slide}>
+                <img src={abs(logo.url)} alt={logo.name} />
+              </div>
+            ))}
+          </Slider>
         </div>
+
+        {/* Play/Pause button */}
+        <button className={styles.playPause} onClick={toggleVideo}>
+          {isPlaying ? <MdPauseCircleFilled /> : <MdOutlinePlayCircleFilled />}
+        </button>
       </div>
     </section>
   );
-}
+};
 
 export default BrandSlider;

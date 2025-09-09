@@ -1,0 +1,193 @@
+:root {
+  --blue: #2f58ff;
+  --deep: #0b0f23;
+  --muted: #cbd5ff;
+  --accent-start: #f7c84e;
+  --accent-end: #f0a93b;
+}
+
+/* hero background uses a file — keep that as-is */
+.hero {
+  position: relative;
+  background: url("/Brand/ActiveFloor/blue+Banner.webp") center center / cover no-repeat;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 16px;
+  color: white;
+  overflow: hidden;
+}
+
+/* overlay / content wrapper */
+.inner {
+  width: 100%;
+  padding: 36px 28px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.45;
+  color: #eaf0ff;
+  margin: 0 0 28px 0;
+  font-weight: 600;
+}
+
+/* form wrapper */
+.form {
+  margin: 0 auto;
+}
+
+/* labels */
+.label {
+  display: block;
+  margin: 8px 0 6px 0;
+  color: #cfdcff;
+  font-size: 13px;
+}
+
+.muted {
+  font-weight: 400;
+  color: #d7e0ff;
+  font-size: 12px;
+  margin-left: 6px;
+  opacity: 0.9;
+}
+
+/* rows/cols */
+.row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+  align-items: center; /* important for vertical alignment */
+}
+
+.col {
+  flex: 1 1 0;
+}
+
+.colCountry {
+  width: 220px;
+  flex: 0 0 220px;
+  min-width: 160px;
+}
+
+/* react-select wrapper: module-scoped className applied to outer wrapper */
+.countrySelect {
+  /* the wrapper itself — spacing / box-sizing */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* inputs (rounded pill look) */
+/* shared styles for inputs/textarea */
+.input,
+.select,
+.textarea {
+  width: 100%;
+  display: block;
+  background: rgba(2, 8, 23, 0.95);
+  color: #fff;
+  border: none;
+  padding: 14px 18px;
+  border-radius: 28px;
+  font-size: 14px;
+  box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.6);
+  outline: none;
+  transition: box-shadow 0.18s, transform 0.12s;
+  box-sizing: border-box;
+}
+
+/* specific control heights — match react-select control */
+.input {
+  min-height: 56px; /* match select control */
+}
+
+/* value colors and placeholder */
+.input::placeholder,
+.textarea::placeholder {
+  color: #b9c6ff;
+  opacity: 0.9;
+}
+
+/* textarea */
+.textarea {
+  min-height: 140px;
+  border-radius: 18px;
+  padding: 18px;
+  resize: vertical;
+}
+
+/* invalid state */
+.invalid {
+  box-shadow: 0 0 0 3px rgba(255, 98, 98, 0.12),
+    inset 0 -10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* field error (simple inline) */
+.fieldError {
+  color: #ffd2d2;
+  font-size: 12px;
+  margin-top: 6px;
+}
+
+/* submit row & button */
+.submitRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+}
+
+.sendBtn {
+  background: linear-gradient(180deg, var(--accent-start), var(--accent-end));
+  border: none;
+  color: var(--deep);
+  font-weight: 700;
+  padding: 12px 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(240, 169, 59, 0.28);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.sendBtn:active {
+  transform: translateY(1px);
+}
+.sendBtn[disabled] {
+  opacity: 0.7;
+  cursor: default;
+  transform: none;
+}
+
+/* error summary */
+.errorSummary {
+  margin-top: 12px;
+  color: #ffd2d2;
+  text-align: center;
+  font-size: 13px;
+}
+
+/* responsive */
+@media (max-width: 920px) {
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .colCountry {
+    width: 100%;
+    flex: 1;
+  }
+  .title {
+    font-size: 18px;
+    padding: 0 8px;
+  }
+  .inner {
+    padding: 24px;
+  }
+}
